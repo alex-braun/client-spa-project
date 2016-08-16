@@ -1,2 +1,125 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$background: #929292;
+$drum-color: #464344;
+
+body {
+  text-align: center;
+  background-color: $background;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  position: absolute;
+  display: inline-block;
+  height: 50px;
+  margin: 25px auto;
+  width: 100px;
+}
+
+.drum-machine {
+  height: 420px;
+  width: 1040px;
+  background: $drum-color;
+  display: inline-block;
+  box-shadow: 0 10px 70px #444444, inset 0 10px rgba(255, 255, 255, 0.1),
+  inset 0 -10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 50px;
+  padding: 70px 60px 160px;
+  position: relative;
+  top: 50%;
+}
+
+.drum-machine .case:first-child {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+
+.drum-machine .case {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    background: #262727;
+    width: 40px;
+    box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.2), inset 0 10px 0 rgba(255, 255, 255, 0.2);
+}
+
+.drum-select {
+  float: left;
+  width: 80px;
+}
+
+.indicator {
+    content: " ";
+    display: inline-block;
+    background: #620000;
+    // background: #f01f07;
+
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    margin: 0 0 10px;
+    border: 2px rgba(0, 0, 0, 0.15) solid;
+}
+
+.clicked {
+  background: #ff0000;
+  content: " ";
+  display: inline-block;
+  // background: #f01f07;
+
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  margin: 0 0 10px;
+  border: 2px rgba(0, 0, 0, 0.15) solid;
+}
+
+p, button {
+    font-family: 'Roboto Mono', mono;
+    text-transform: uppercase;
+    color: #D5D3C9;
+}
+
+.trigger-grid {
+  background-color: #BABDA2;
+  height: 70px;
+  clear: left;
+}
+
+.pad {
+  float: left;
+  height: 54px;
+  width: 49.5px;
+  border: 1px solid #000;
+  margin: 8px 4px;
+}
+
+.pad.one {
+  margin-left: 8px;
+}
+// .dial {
+//     display: block;
+//     width: 40px;
+//     height: 40px;
+//     background: #323131;
+//     margin: 10px auto;
+//     border-radius: 50%;
+//     box-shadow: 0 0 5px rgba(0, 0, 0, 0.26);
+//     position: relative;
+//     border: 3px solid #2D2D2D;
+// }
+// element.style {
+//     width: 75px;
+//     display: inline;
+// }
+// .drum-triggers {
+//
+// }
