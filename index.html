@@ -2,19 +2,114 @@
 <html>
     <head>
       <title>Example</title>
-
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <div class="title"
+        <h1>Drum Machine</h1>
+      </div>
+
+      <!--the actual drum machine face-->
+      <div class="drum-machine">
+        <div class="case"></div>
+        <div class="case"></div>
+
+      <!--Individual instrument button with tuning and volume parameters-->
+      <!--kick drum parameters-->
+        <div class="drum-select">
+          <div class="drum indicator kick"></div>
+          <p>TUNE</p>
+            <input type="text" class="dial kick-tune" value="0" data-min="-50" data-max="50">
+          <p>VOL</p>
+          <input type="text" class="dial kick-vol" value="0" data-min="-50" data-max="50">
+          <button type="button" class="drum button kick">KICK</button>
+        </div>
+
+      <!--snare drum parameters-->
+        <div class="drum-select">
+          <div class="drum indicator snare"></div>
+          <p>TUNE</p>
+            <input type="text" class="dial snare-tune" value="0" data-min="-50" data-max="50">
+          <p>VOL</p>
+          <input type="text" class="dial snare-vol" value="0" data-min="-50" data-max="50">
+          <button type="button" class="drum button snare">SNARE</button>
+        </div>
+
+      <!--closed hihat drum parameters-->
+        <div class="drum-select">
+          <div class="drum indicator hat-close"></div>
+          <p>TUNE</p>
+            <input type="text" class="dial hat-close-tune" value="0" data-min="-50" data-max="50">
+          <p>VOL</p>
+          <input type="text" class="dial hat-close-vol" value="0" data-min="-50" data-max="50">
+          <button type="button" class="drum button hat-close">HAT C</button>
+        </div>
+
+      <!--open hihat drum parameters-->
+        <div class="drum-select">
+          <div class="drum indicator hat-open"></div>
+          <p>TUNE</p>
+            <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50">
+          <p>VOL</p>
+          <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50">
+          <button type="button" class="drum button hat-open">HAT O</button>
+        </div>
+
+      <!--clap drum parameters-->
+        <div class="drum-select">
+          <div class="drum indicator clap"></div>
+          <p>TUNE</p>
+            <input type="text" class="dial clap-tune" value="0" data-min="-50" data-max="50">
+          <p>VOL</p>
+          <input type="text" class="dial clap-vol" value="0" data-min="-50" data-max="50">
+          <button type="button" class="drum button clap">CLAP</button>
+        </div>
+
+        <div class="drum-select">
+          <div class="drum indicator shake"></div>
+          <p>TUNE</p>
+            <input type="text" class="dial shake-tune" value="0" data-min="-50" data-max="50">
+          <p>VOL</p>
+          <input type="text" class="dial shake-vol" value="0" data-min="-50" data-max="50">
+          <button type="button" class="drum button-shake">SHAKE</button>
+        </div>
+
+<!--the drum pads grid.-->
+        <div class="trigger-grid">
+          <button type="button" class="pad one" data-val="" data-grid="pad 1">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad two" data-val="" data-grid="pad 2">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad three" data-val="" data-grid="pad 3">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad four" data-val="" data-grid="pad 4">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad five" data-val="" data-grid="pad 5">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad six" data-val="" data-grid="pad 6">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad seven" data-val="" data-grid="pad 7">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad eight" data-val="" data-grid="pad 8">
+            <div class="trigger indicator"></div>
+          </button>
+        </div>
+      </div>
+
+  <audio preload="auto" src="/audio/f9hrdk18.wav" class="wav-kick"></audio>
+  <audio preload="auto" src="/audio/f9hsnr13.wav" class="wav-snare"></audio>
+  <audio preload="auto" src="/audio/f9clp15.wav" class="wav-clap"></audio>
+  <audio preload="auto" src="/audio/f9clht04.wav" class="wav-hat-close"></audio>
+  <audio preload="auto" src="/audio/f9opht04.wav" class="wav-hat-open"></audio>
+
     </body>
 </html>
