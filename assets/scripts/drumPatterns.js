@@ -22,24 +22,26 @@ const beat = {
 
 let drum;
 
-
+//maps drum patterns to the individual pad indicators.  This function is
+//triggered any time the document is selected by the user.
 let mapPatternsToIndicators = function(inst) {
   for (let i = 0; i < triggerGrid.length; i++) {
     let selected;
     if (beat[inst][i] === true) {
-    selected = triggerGrid[i];
-    $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
-    .addClass('clicked');
-  }
-  else {
-    selected = triggerGrid[i];
-    $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
-    .removeClass('clicked');
-  }
+      selected = triggerGrid[i];
+      $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
+      .addClass('clicked');
+    }
+    else {
+      selected = triggerGrid[i];
+      $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
+      .removeClass('clicked');
+    }
   }
 };
 
-
+// This function constructs the correct drum array with the parameters passed in
+// by the event handlers.
 let constructPattern = function(drum, index) {
   // console.log(drum);
   for (let i = 0; i < triggerGrid.length; i++) {
