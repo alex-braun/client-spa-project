@@ -23,9 +23,9 @@ const addDrumHandlers = () => {
     $('.pad').attr('disabled', true);
   });
 
-// $(document).click(function() {
-// drumPatterns.mapPatternsToIndicators(currentDrum);
-// });
+$(document).click(function() {
+drumPatterns.mapPatternsToIndicators(currentDrum);
+});
   //find the correct user selected drum type
     $('.drum.button').click(function() {
       if ($(this).hasClass('kick')) {
@@ -35,10 +35,10 @@ const addDrumHandlers = () => {
         currentDrum = 'snare';
       }
       if ($(this).hasClass('hat-close')) {
-        currentDrum = 'hat-close';
+        currentDrum = 'hatClose';
       }
       if ($(this).hasClass('hat-open')) {
-        currentDrum = 'hat-open';
+        currentDrum = 'hatOpen';
       }
       if ($(this).hasClass('clap')) {
         currentDrum = 'clap';
