@@ -8,9 +8,12 @@
 // const drumEvents = require('./drumEvents');
 // const drumPatterns = require('./drumPatterns');
 // const knobJQuery = require('./jquery.knob.min');
+const authEvents = require('./auth/events');
 const drumEvents = require('./drumEvents');
 
 
 $(() => {
+  authEvents.addHandlers();
   drumEvents.addDrumHandlers();
+
 });
