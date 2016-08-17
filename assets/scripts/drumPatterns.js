@@ -37,7 +37,9 @@ let mapPatternsToIndicators = function(inst) {
       $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
       .removeClass('clicked');
     }
+    // console.log(selected);
   }
+
 };
 
 // This function constructs the correct drum array with the parameters passed in
@@ -54,7 +56,7 @@ let constructPattern = function(drum, index) {
       }
     }
   }
-  // console.log(beat[drum]);
+  console.log(beat[drum]);
 };
 
 
