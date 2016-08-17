@@ -22,23 +22,24 @@ let drum;
 // let currentPattern;
 
 //This turns on indicators according to the arrays.
-// let mapPatternsToIndicators = function(inst) {
-//   if (inst === 'kick') {
-//     for (let i = 0; i < triggerGrid.length; i++) {
-//       let selected;
-//       if (kickPattern[i] === true) {
-//         selected = triggerGrid[i];
-//         console.log(kickPattern);
-//         $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
-//         .addClass('clicked');
-//       } else if(kickPattern[i] === ''){
-//         selected = triggerGrid[i];
-//         $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
-//         .removeClass('clicked');
-//       }
-//     }
-//   }
-// };
+let mapPatternsToIndicators = function(inst) {
+  if (inst === 'kick') {
+    for (let i = 0; i < triggerGrid.length; i++) {
+      let selected;
+      if (kickPattern[i] === true) {
+        selected = triggerGrid[i];
+        console.log(kickPattern);
+        $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
+        .addClass('clicked');
+      }
+      else if(kickPattern[i] === ''){
+        selected = triggerGrid[i];
+        $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
+        .removeClass('clicked');
+      }
+    }
+  }
+};
   //   else if (inst === 'snare' && snarePattern[i] === true) {
   //     $('.pad').attr('data-grid',triggerGrid[i]).find('.trigger.indicator')
   //     .addClass('clicked');
@@ -159,5 +160,5 @@ module.exports = {
   constructPattern,
   padIndex,
   userSelectDrum,
-  // mapPatternsToIndicators
+  mapPatternsToIndicators
 };
