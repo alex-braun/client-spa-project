@@ -23,6 +23,9 @@ const addDrumHandlers = () => {
     $('.pad').attr('disabled', true);
   });
 
+// $(document).click(function() {
+// drumPatterns.mapPatternsToIndicators(currentDrum);
+// });
   //find the correct user selected drum type
     $('.drum.button').click(function() {
       if ($(this).hasClass('kick')) {
@@ -42,6 +45,8 @@ const addDrumHandlers = () => {
       }
       drumPatterns.userSelectDrum(currentDrum);
       $('.pad').attr('disabled', false);
+      // drumPatterns.mapPatternsToIndicators(currentDrum);
+
   });
 
   //find the correct user selected trigger pad
@@ -50,6 +55,8 @@ const addDrumHandlers = () => {
   drumPatterns.padIndex(currentGrid);
 });
 };
+
+
 
 
 module.exports = {
