@@ -1,10 +1,36 @@
 'use strict';
 
+const getFormFields = require('../../lib/get-form-fields');
 
 const drumPatterns = require('./drumPatterns');
 
 
+const onShowPattern = function (event) {
+  let data = getFormFields(this);
+  console.log(data);
+  event.preventDefault();
+  gameApi.gameShow(data)
+    .done(gameUi.showGameSuccess)
+    .fail(gameUi.failure);
+};
 
+const onCreatePattern = function (event) {
+  let data = getFormFields(this);
+  event.preventDefault();
+  gameApi.gameCreate(data)
+    .done(gameUi.createSuccess)
+    .fail(gameUi.failure);
+};
+
+
+const onShowAllPatterns = function (event) {
+  event.preventDefault();
+  let data = gameUi.gameId;
+  console.log(data);
+  gameApi.gamesShowAll(data)
+    .done(gameUi.showAllSuccess)
+    .fail(gameUi.failure);
+};
 
 
 
