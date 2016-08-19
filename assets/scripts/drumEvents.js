@@ -1,62 +1,35 @@
 'use strict';
 
 const getFormFields = require('../../lib/get-form-fields');
-
+const drumApi = require('./drumApi')
 const drumPatterns = require('./drumPatterns');
+const drumUi = require('./drumUi');
 
 
 const onShowPattern = function (event) {
   let data = getFormFields(this);
-  console.log(data);
   event.preventDefault();
-  gameApi.gameShow(data)
-    .done(gameUi.showGameSuccess)
-    .fail(gameUi.failure);
+  drumApi.patternShow(data)
+    .done(drumUi.showPatternSuccess)
+    .fail(drumUi.failure);
 };
 
 const onCreatePattern = function (event) {
   let data = getFormFields(this);
   event.preventDefault();
-  gameApi.gameCreate(data)
-    .done(gameUi.createSuccess)
-    .fail(gameUi.failure);
+  drumApi.patternCreate(data)
+    .done(drumUi.createSuccess)
+    .fail(drumUi.failure);
 };
 
 
 const onShowAllPatterns = function (event) {
   event.preventDefault();
-  let data = gameUi.gameId;
-  console.log(data);
-  gameApi.gamesShowAll(data)
-    .done(gameUi.showAllSuccess)
-    .fail(gameUi.failure);
+  let data = drumUi.patternId;
+  drumApi.patternShowAll(data)
+    .done(drumUi.showAllSuccess)
+    .fail(drumUi.failure);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //event handlers below
@@ -110,8 +83,9 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 });
 };
 
-
-
+$('.create-pattern').on('click', onCreatePattern);
+$('#show-game').on('submit', onShowPattern);
+$('.show-all-games').on('click', onShowAllPatterns);
 
 module.exports = {
   addDrumHandlers,
