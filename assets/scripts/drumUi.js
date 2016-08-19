@@ -4,7 +4,7 @@ const app = require('./app');
 const drumPatterns = require('./drumPatterns');
 
 const createSuccess = function (data) {
-  createdPattern = data.pattern;
+  let createdPattern = data.pattern;
   if (data.pattern) {
     console.log(data.pattern);
   }
@@ -17,13 +17,13 @@ const showAllSuccess = function (data) {
   let completedPatterns = 0;
   if (data) {
     console.log(data);
-    for (let i = 0; i < data.patterns.length; i++) {
-      // console.log(data.games[i].cells) ;
-      if (data.patterns[i].over === true) {
-        completedPatterns++;
-      }
-    }
-    console.log(completedPatterns)
+    // for (let i = 0; i < data.patterns.length; i++) {
+      // // console.log(data.games[i].cells) ;
+      // if (data.patterns[i].over === true) {
+      //   completedPatterns++;
+      // }
+    // }
+    // console.log(completedPatterns);
     return completedPatterns;
   }
 };
