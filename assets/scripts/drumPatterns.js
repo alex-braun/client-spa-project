@@ -13,11 +13,11 @@ const knobJQuery = require('./jquery.knob.min');
 const triggerGrid = ['pad 1', 'pad 2', 'pad 3', 'pad 4', 'pad 5', 'pad 6', 'pad 7', 'pad 8'];
 
 const beat = {
-  kick: ['','','','','','','',''],
-  snare: ['','','','','','','',''],
-  hatClose: ['','','','','','','',''],
-  hatOpen: ['','','','','','','',''],
-  clap: ['','','','','','','',''],
+  kick: [false,false,false,false,false,false,false,false],
+  snare: [false,false,false,false,false,false,false,false],
+  hatClose: [false,false,false,false,false,false,false,false],
+  hatOpen: [false,false,false,false,false,false,false,false],
+  clap: [false,false,false,false,false,false,false,false],
 };
 
 let drum;
@@ -48,11 +48,11 @@ let constructPattern = function(drum, index) {
   // console.log(drum);
   for (let i = 0; i < triggerGrid.length; i++) {
     if(triggerGrid[i] === index) {
-      if(beat[drum][i] === '') {
+      if(beat[drum][i] === false) {
         beat[drum][i] = true;
       }
       else {
-        beat[drum][i] = '';
+        beat[drum][i] = false;
       }
     }
   }
@@ -66,13 +66,21 @@ drum = inst;
 
 let padIndex = function(grid) {
   constructPattern(drum, grid);
-
 };
+
+let replacePatternFromData = function(object) {
+  for (let key in object) {
+    beat[key] = object[key];
+  }
+  console.log(beat);
+};
+
 
 
 module.exports = {
   constructPattern,
   padIndex,
   userSelectDrum,
-  mapPatternsToIndicators
+  mapPatternsToIndicators,
+  replacePatternFromData
 };
