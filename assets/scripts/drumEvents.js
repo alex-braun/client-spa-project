@@ -1,12 +1,40 @@
 'use strict';
 
-// const drumPatterns = require('./drumPatterns');
+
 const drumPatterns = require('./drumPatterns');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//event handlers below
 let currentDrum;
-// let currentGrid;
-
-
 const addDrumHandlers = () => {
 
 //This references the jQuery Knob plugin
