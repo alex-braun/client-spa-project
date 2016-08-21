@@ -4,56 +4,56 @@ const app = require('./app');
 const drumPatterns = require('./drumPatterns');
 
 const patternFromData = {
-  kick: [],
-  snare: [],
-  hatClose: [],
-  hatOpen: [],
-  clap: [],
+  kick: [false,false,false,false,false,false,false,false],
+  snare: [false,false,false,false,false,false,false,false],
+  hatClose: [false,false,false,false,false,false,false,false],
+  hatOpen: [false,false,false,false,false,false,false,false],
+  clap: [false,false,false,false,false,false,false,false],
 };
 
 
 const createSuccess = function (data) {
-  let createdPattern = data.pattern;
-  if (data.pattern) {
-    console.log(data.pattern);
+  if (data.beat) {
+    console.log(data.beat);
   }
-  app.pattern = data.pattern;
-  return createdPattern;
 };
 
 
 const showAllSuccess = function (data) {
-  let completedPatterns = 0;
   if (data) {
-    console.log(data);
-    for (let i = 0; i < data.patterns.length; i++) {
-      // console.log(data.games[i].cells) ;
-      if (data.patterns[i].over === true) {
-        completedPatterns++;
+    console.log(data.beats);
+    for (let i = 0; i < data.beats.length; i++) {
+      console.log(data.beats[i].name);
+    $('.name').append('<li>' + data.beats[i].name + '</li>');
+    $('.id').append('<li>' + data.beats[i].id + '</li>');
+    // $('.view-all-beats table').append('<tr><td>' + data.beats[i].id + '</td></tr>');
+
+
+      // $('.beats-list').append('<li>' + data.beats[i].id +
+      //  '       '+ data.beats[i].name + '</li>');
       }
     }
-    console.log(completedPatterns);
-    return completedPatterns;
-  }
 };
 
 
-const showPatternSuccess = (data) => {
-  app.pattern = data.pattern;
-  console.log(app);
+const showBeatSuccess = (data) => {
+  app.beat = data.beat;
+  // console.log(app);
+
   // for (let i = 0; i < data.pattern.length; i++) {
 // THE OBJECT (PATTERN)
-    // console.log(app.pattern);
+  console.log(app.pattern);
   for (let i = 0; i < app.pattern.beats.length; i++) {
-    patternFromData.kick[i] = app.pattern.beats[i].kick;
-    patternFromData.snare[i] = app.pattern.beats[i].snare;
-    patternFromData.hatClose[i] = app.pattern.beats[i].hatClose;
-    patternFromData.hatOpen[i] = app.pattern.beats[i].hatOpen;
-    patternFromData.clap[i] = app.pattern.beats[i].clap;
+  patternFromData.kick[i] = app.pattern.beats[i].kick;
+  patternFromData.snare[i] = app.pattern.beats[i].snare;
+  patternFromData.hatClose[i] = app.pattern.beats[i].hatClose;
+  patternFromData.hatOpen[i] = app.pattern.beats[i].hatOpen;
+  patternFromData.clap[i] = app.pattern.beats[i].clap;
   }
-  // console.log(patternFromData);
-  drumPatterns.replacePatternFromData(patternFromData);
 };
+  // console.log(patternFromData);
+//   drumPatterns.replacePatternFromData(patternFromData);
+// };
 //THE OBJECT NAME (PATTERN NAME)
     // console.log(app.pattern.name);
 //THE OBJECT USER ID (USER ID IN PATTERN)
@@ -88,6 +88,6 @@ module.exports = {
   failure,
   createSuccess,
   showAllSuccess,
-  showPatternSuccess,
+  showBeatSuccess,
   // replacePatternFromData
 };
