@@ -10,6 +10,9 @@ body {
   width: 100%;
 }
 
+h3 {
+  font-size: 19px;
+}
 .btn-custom {
   background-color: transparent;
   border: 0;
@@ -22,10 +25,12 @@ body {
 }
 
 .title {
-  position: absolute;
+  float: right;
+  position: relative;
+  // border: 1px solid black;
   display: inline-block;
   height: 50px;
-  margin: 25px auto;
+  margin-right: 75px;
   width: 100px;
 }
 
@@ -37,13 +42,21 @@ body {
   box-shadow: 0 10px 70px #444444, inset 0 10px rgba(255, 255, 255, 0.1),
   inset 0 -10px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  margin-top: 200px;
+  margin-top: 100px;
   padding: 70px 60px 160px;
   position: relative;
   top: 50%;
 }
 
 .drum-machine .case:first-child {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+
+.drum-machine .case:nth-child(2) {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -94,7 +107,7 @@ body {
 }
 
 p, button {
-    font-family: 'Roboto Mono', mono;
+    // font-family: 'Roboto Mono', mono;
     text-transform: uppercase;
     color: #D5D3C9;
 }
@@ -134,3 +147,164 @@ p, button {
 // .drum-triggers {
 //
 // }
+// .show-user-patterns {
+//   position: fixed;
+// }
+
+.drum-buttons {
+  margin-right: 10px;
+  margin-top: -65px;
+  // border:1px solid black;
+  width: 350px;
+  float: right;
+}
+// .beat-console {
+// }
+
+
+.save-wrapper {
+text-align: center;
+border: 1px solid black;
+width: 75px;
+height: 150px;
+// padding: 20px;
+position: relative;
+background-color: rgba(0,0,0,0.8);
+text-decoration-color: black;
+visibility: hidden;
+}
+
+.save-wrapper:hover {
+  visibility: visible;
+}
+
+.save {
+  position: relative;
+  float: right;
+  margin: 5px;
+}
+
+.save-beat {
+  margin: 11px 0;
+  padding: 0;
+  visibility: visible;
+}
+
+.index-wrapper {
+text-align: center;
+border: 1px solid black;
+width: 75px;
+height: 150px;
+// padding: 20px;
+position: relative;
+background-color: rgba(0,0,0,0.8);
+text-decoration-color: black;
+visibility: hidden;
+}
+
+.index-wrapper:hover {
+  visibility: visible;
+}
+
+.index {
+  position: relative;
+  float: right;
+  margin: 5px;
+}
+
+.index-beats {
+  margin: 0px 0;
+  padding: 0;
+  visibility: visible;
+}
+
+.show-wrapper {
+text-align: center;
+border: 1px solid black;
+width: 75px;
+height: 150px;
+// padding: 20px;
+position: relative;
+background-color: rgba(0,0,0,0.8);
+text-decoration-color: black;
+visibility: hidden;
+}
+
+.show-wrapper:hover {
+  visibility: visible;
+}
+
+.show {
+  position: relative;
+  float: right;
+  margin: 5px;
+}
+
+.show-beat {
+  margin: 21px 0;
+  padding: 0;
+  visibility: visible;
+}
+
+
+
+.create-wrapper {
+text-align: center;
+border: 1px solid black;
+width: 75px;
+height: 150px;
+// padding: 20px;
+position: relative;
+background-color: rgba(0,0,0,0.8);
+text-decoration-color: black;
+visibility: hidden;
+}
+
+.create-wrapper:hover {
+  visibility: visible;
+}
+
+.create {
+  position: relative;
+  float: right;
+  margin: 5px;
+}
+
+.create-beat {
+  margin: 21px 0;
+  padding: 0;
+  visibility: visible;
+}
+
+// .toggle-wrapper {
+//   position: relative;
+//   margin-right: 85px;
+//   float: right;
+//   bottom: 205px;
+// }
+
+.view-all-beats {
+  display: table;
+  border-radius: 5px;
+  // border: 1px solid black;
+  position: relative;
+  margin-right: 85px;
+  width: 150px;
+  float: right;
+  bottom: 205px;
+  background-color: #070D1A;
+  text-decoration-color: yellow;
+}
+
+ul li {
+  text-align: left;
+  padding: 0;
+  color: black;
+  list-style-type: none;
+  color: #B5B3AA;
+
+}
+th {
+  color: #B5B3AA;
+  font-size: 15px;
+}
