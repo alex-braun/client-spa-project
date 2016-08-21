@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Drum Machine</title>
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
 
-
-
-
-
-
-
-
-
-      <nav class="navbar-right">
+      <nav class="navbar-left">
         <div class="dropdown">
         <button class="dropdown-toggle btn-custom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -28,7 +20,10 @@
         </ul>
       </div>
       </nav>
-        <div class="container-fluid">
+      <div class="title">
+        <h1>Drum Machine</h1>
+      </div>
+        <!-- <div class="container-fluid"> -->
             <!-- <form class="navbar-form navbar-right">
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-in-modal">
                 Sign In</button>
@@ -150,29 +145,41 @@
         </div>
       </div> -->
 
-
-
-
-
-
-
-
-
-
-
-      <!-- SHOW GAME MODAL -->
-      <div class="modal fade" id="show-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- SHOW BEAT MODAL -->
+      <div class="modal fade" id="show-beat-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Show Game</h4>
+              <h4 class="modal-title" id="myModalLabel">Load your Beat</h4>
             </div>
             <div class="modal-body">
               <form id="show-game">
                 <fieldset>
-                  <input type="text" name="pattern[id]" placeholder="id#">
+                  <input type="text" name="beat[id]" placeholder="#id">
                   <input type="submit" name="submit" class= "search-game-button" value="GET">
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- CREATE BEAT MODAL -->
+      <div class="modal fade" id="create-beat-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Create Pattern</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-beat">
+                <fieldset>
+                  <input type="text" name="beat[name]" placeholder="beat name">
+                  <input type="submit" name="submit" class= "create-beat-button" value="Make a beat!">
                 </fieldset>
               </form>
             </div>
@@ -184,27 +191,82 @@
 
 
 
+      <!-- CREATE BEAT MODAL -->
+      <!-- <div class="modal fade" id="create-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Create Pattern</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-game">
+                <fieldset>
+                  <input type="text" name="name" placeholder="name">
+                  <input type="submit" name="submit" class= "create-game-button" value="GET">
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> -->
 
 
 
 
-
-
-
-
-      <div class="title">
-        <h1>Drum Machine</h1>
-        <button type="button" class="btn btn-success create-pattern drum-console">
-        Create Pattern</button>
-        <button type="button" class="btn btn-info show-game game-console" data-toggle="modal" data-target="#show-game-modal">
-        Show Games</button>
-        <button type="button" class="btn btn-info show-all-games game-console">
-      User Games</button>
-
-      </div>
 
       <!--the actual drum machine face-->
-      <div class="drum-machine">
+  <div class="drum-machine">
+    <div class="drum-buttons">
+
+      <!--list beats-->
+            <div class="index">
+              <div class="index-wrapper">
+                <h3>VIEW BEATS</h3>
+                <button type="button" class="btn show-all-games index-beats btn-custom beat-console">
+                <span class="glyphicon glyphicon-list"></span></button>
+              </div>
+            </div>
+
+      <!--load beats-->
+            <div class="show">
+              <div class="show-wrapper">
+                <h3>LOAD</h3>
+            <button type="button" class="btn show-beat btn-custom beat-console" data-toggle="modal" data-target="#show-beat-modal">
+            <span class="glyphicon glyphicon-open-file"></span></button>
+              </div>
+            </div>
+
+
+      <div class="create">
+        <div class="create-wrapper">
+          <h3>CREATE</h3>
+      <button type="button" class="btn create-beat btn-custom beat-console" data-toggle="modal" data-target="#create-beat-modal">
+        <span class="glyphicon glyphicon-file"></span></button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+<!--save button-->
+      <div class="save">
+        <div class="save-wrapper">
+          <h3>SAVE<h3>
+          <button type="button" class="btn btn-custom save-beat beat-console">
+          <span class="glyphicon glyphicon-save-file"></span></button>
+        </div>
+      </div>
+
+    </div>
+
+<!-- btn-info -->
+<!--
+    <button class="dropdown-toggle btn-custom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <span class="glyphicon glyphicon-menu-hamburger"></span> -->
         <div class="case"></div>
         <div class="case"></div>
 
@@ -295,6 +357,30 @@
             <div class="trigger indicator"></div>
           </button>
         </div>
+        <div class="toggle-wrapper">
+          <div class="view-all-beats">
+            <table>
+              <tr class = "titles">
+                <th>Name</th>
+                <th>Your beat id</th>
+              </tr>
+              <tr class = "response"</tr>
+                <td><ul class="name">
+                </ul>
+                </td>
+
+                <td><ul class="id">
+                </ul>
+                </td>
+
+            </table>
+
+
+
+            <ul class="beats-list"></ul>
+          </div>
+        </div>
+
       </div>
 
   <audio preload="auto" src="/audio/f9hrdk18.wav" class="wav-kick"></audio>
@@ -302,6 +388,13 @@
   <audio preload="auto" src="/audio/f9clp15.wav" class="wav-clap"></audio>
   <audio preload="auto" src="/audio/f9clht04.wav" class="wav-hat-close"></audio>
   <audio preload="auto" src="/audio/f9opht04.wav" class="wav-hat-open"></audio>
+
+
+
+
+
+
+
 
     </body>
 </html>
