@@ -1,35 +1,46 @@
 'use strict';
 
 const getFormFields = require('../../lib/get-form-fields');
-const drumApi = require('./drumApi')
+const drumApi = require('./drumApi');
 const drumPatterns = require('./drumPatterns');
 const drumUi = require('./drumUi');
 
-
-const onShowPattern = function (event) {
+//WORKING
+const onShowBeat = function (event) {
   let data = getFormFields(this);
+  console.log(data);
   event.preventDefault();
-  drumApi.patternShow(data)
-    .done(drumUi.showPatternSuccess)
+  drumApi.beatShow(data)
+    .done(drumUi.showBeatSuccess)
     .fail(drumUi.failure);
 };
 
-const onCreatePattern = function (event) {
-  let data = getFormFields(this);
+
+//WORKING
+const onShowAllBeats = function (event) {
   event.preventDefault();
-  drumApi.patternCreate(data)
+  let data = drumUi.patternId;
+  drumApi.beatShowAll(data)
+    .done(drumUi.showAllSuccess)
+    .fail(drumUi.failure);
+};
+
+const onCreateBeat = function (event) {
+  let data = getFormFields(this);
+  // console.log(data.patterns.name);
+  event.preventDefault();
+  drumApi.beatCreate(data)
     .done(drumUi.createSuccess)
     .fail(drumUi.failure);
 };
 
-
-const onShowAllPatterns = function (event) {
-  event.preventDefault();
-  let data = drumUi.patternId;
-  drumApi.patternShowAll(data)
-    .done(drumUi.showAllSuccess)
-    .fail(drumUi.failure);
-};
+// const onShowPattern = function (event) {
+//   let data = getFormFields(this);
+//   event.preventDefault();
+//   drumApi.patternShow(data)
+//     .done(drumUi.showPatternSuccess)
+//     .fail(drumUi.failure);
+// };
 
 
 //event handlers below
@@ -81,11 +92,31 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
   let currentGrid = $(this).data('grid');
   drumPatterns.padIndex(currentGrid);
 });
-};
+// $('.create-pattern').on('submit', onCreatePattern);
+$('.view-all-beats').hide();
+$('#create-beat').on('submit', onCreateBeat);
+$('#show-game').on('submit', onShowBeat);
 
-$('.create-pattern').on('click', onCreatePattern);
-$('#show-game').on('submit', onShowPattern);
-$('.show-all-games').on('click', onShowAllPatterns);
+// $('.index-beats').on('click', function() {
+//   $('ul').empty();
+// });
+// $('.index-beats').click('click', onShowAllBeats);
+// $('.index-beats').on('click', function() {
+//   $('.view-all-beats').slideToggle(400);
+//   // $('.view-all-beats ul').toggle();
+// });
+
+$('.index-beats').on('click', function() {
+  $('ul').empty();
+});
+$('.index-beats').click(function(event) {
+  onShowAllBeats(event);
+  $('.view-all-beats').slideToggle(800);
+});
+
+
+$('.save-beat').on('click', drumPatterns.onSaveBeat);
+};
 
 module.exports = {
   addDrumHandlers,
