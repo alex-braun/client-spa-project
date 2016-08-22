@@ -77,12 +77,12 @@ let padIndex = function(grid) {
 
 
 
-// let replacePatternFromData = function(object) {
-//   for (let key in object) {
-//     beat[key] = object[key];
-//   }
-//
-// };
+let replacePatternFromData = function(object) {
+  for (let key in object) {
+    beat[key] = object[key];
+  }
+
+};
 
 
 // let onSavePattern = function() {
@@ -102,6 +102,12 @@ let padIndex = function(grid) {
 //   drumApi.patternUpdate(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
 //
 // };
+
+let num;
+let userSelectId = function(idNum) {
+num = idNum;
+};
+
 let onSaveBeat = function() {
   let stringKick = JSON.stringify(beat.kick);
   let stringSnare = JSON.stringify(beat.snare);
@@ -109,7 +115,7 @@ let onSaveBeat = function() {
   let stringHatOpen = JSON.stringify(beat.hatOpen);
   let stringClap = JSON.stringify(beat.clap);
   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
-  drumApi.beatUpdate(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
 };
 
 
@@ -128,22 +134,22 @@ let onSaveBeat = function() {
 
 
 
-const showPatternSuccess = (data) => {
-  app.beat = data.beat;
-  console.log(app);
+// const showPatternSuccess = (data) => {
+//   app.beat = data.beat;
+//   console.log(app);
   // for (let i = 0; i < data.pattern.length; i++) {
 // THE OBJECT (PATTERN)
     // console.log(app.pattern);
-  for (let i = 0; i < app.pattern.beats.length; i++) {
-    patternFromData.kick[i] = app.pattern.beats[i].kick;
-    patternFromData.snare[i] = app.pattern.beats[i].snare;
-    patternFromData.hatClose[i] = app.pattern.beats[i].hatClose;
-    patternFromData.hatOpen[i] = app.pattern.beats[i].hatOpen;
-    patternFromData.clap[i] = app.pattern.beats[i].clap;
-  }
+  // for (let i = 0; i < app.pattern.beats.length; i++) {
+  //   patternFromData.kick[i] = app.pattern.beats[i].kick;
+  //   patternFromData.snare[i] = app.pattern.beats[i].snare;
+  //   patternFromData.hatClose[i] = app.pattern.beats[i].hatClose;
+  //   patternFromData.hatOpen[i] = app.pattern.beats[i].hatOpen;
+  //   patternFromData.clap[i] = app.pattern.beats[i].clap;
+  // }
   // console.log(patternFromData);
-  drumPatterns.replacePatternFromData(patternFromData);
-};
+//   drumPatterns.replacePatternFromData(patternFromData);
+// };
 // var context;
 // window.addEventListener('load', init, false);
 // function init() {
@@ -202,7 +208,8 @@ module.exports = {
   constructPattern,
   padIndex,
   userSelectDrum,
+  userSelectId,
   mapPatternsToIndicators,
-  // replacePatternFromData,
-  onSaveBeat
+  replacePatternFromData,
+  onSaveBeat,
 };
