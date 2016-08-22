@@ -6,7 +6,7 @@ $drum-color: #464344;
   font-family:'digital-clock-font';
   src: url('../digital-7.regular.ttf');
  }
- 
+
 body {
   text-align: center;
   background-color: $background;
@@ -181,10 +181,10 @@ p, button {
 // }
 
 .drum-buttons {
-  margin-right: 10px;
+  margin-right: 0px;
   margin-top: -65px;
   // border:1px solid black;
-  width: 350px;
+  width: 405px;
   float: right;
 }
 // .beat-console {
@@ -197,7 +197,7 @@ p, button {
 .delete-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -225,7 +225,7 @@ visibility: hidden;
 .save-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -253,7 +253,7 @@ visibility: hidden;
 .index-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -281,7 +281,7 @@ visibility: hidden;
 .show-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -311,7 +311,7 @@ visibility: hidden;
 .create-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
