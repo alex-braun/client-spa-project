@@ -2,14 +2,43 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 $background: #929292;
 $drum-color: #464344;
-
+@font-face{
+  font-family:'digital-clock-font';
+  src: url('../digital-7.regular.ttf');
+ }
+ 
 body {
   text-align: center;
   background-color: $background;
   height: 100%;
   width: 100%;
 }
+h2 {
+  color: #ff0000;
+  font-size: 25px;
+  font-family:'digital-clock-font';
+}
 
+.command-top {
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #262727;
+}
+.command-bottom {
+  height: 55px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #262727;
+}
+.command-wrapper{
+  width: 450px;
+  height: 120px;
+  border: 5px solid #10101A;
+  margin: 45px auto 0 auto;
+  border-radius: 5px;
+  background: #262727;
+}
 h3 {
   font-size: 19px;
 }
@@ -21,7 +50,7 @@ h3 {
 }
 
 .glyphicon {
-  font-size: 70px;
+  font-size: 65px;
 }
 
 .title {
@@ -161,6 +190,37 @@ p, button {
 // .beat-console {
 // }
 
+
+
+
+
+.delete-wrapper {
+text-align: center;
+border: 1px solid black;
+width: 75px;
+height: 150px;
+// padding: 20px;
+position: relative;
+background-color: rgba(0,0,0,0.8);
+text-decoration-color: black;
+visibility: hidden;
+}
+
+.delete-wrapper:hover {
+  visibility: visible;
+}
+
+.delete {
+  position: relative;
+  float: right;
+  margin: 5px;
+}
+
+.delete-beat {
+  margin: 11px 0;
+  padding: 0;
+  visibility: visible;
+}
 
 .save-wrapper {
 text-align: center;
