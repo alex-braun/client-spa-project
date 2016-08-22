@@ -1,9 +1,11 @@
 'use strict';
 const app = require('./app');
 
+
+
 //GET SHOW
 const beatShow = (data) => $.ajax({
-    url: app.api + '/beats/' + data.beat.id,
+    url: app.api + '/beats/' + data.beats.id,
     method: 'GET',
     data,
     headers: {
@@ -31,11 +33,11 @@ const beatCreate = function(data) {
       data: {
           'beat': {
             'name': data.beat.name,
-            'kick': '["false","false","false","false","false","false","false","false"]',
-            'snare': '["false","false","false","false","false","false","false","false"]',
-            'hatClose': '["false","false","false","false","false","false","false","false"]',
-            'hatOpen': '["false","false","false","false","false","false","false","false"]',
-            'clap': '["false","false","false","false","false","false","false","false"]',
+            'kick': '[false,false,false,false,false,false,false,false]',
+            'snare': '[false,false,false,false,false,false,false,false]',
+            'hatClose': '[false,false,false,false,false,false,false,false]',
+            'hatOpen': '[false,false,false,false,false,false,false,false]',
+            'clap': '[false,false,false,false,false,false,false,false]',
             },
           }
       });
@@ -66,10 +68,10 @@ const beatCreate = function(data) {
 // }
 
 //PATCH
-const beatUpdate = function(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap) {
-  console.log(data);
+const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap) {
+  console.log(app.beat);
   return $.ajax({
-  url: app.api + '/beats/' + app.beat.id,
+  url: app.api + '/beats/' + dataNum,
   method: 'PATCH',
   headers: {
     Authorization: 'Token token=' + app.user.token,
