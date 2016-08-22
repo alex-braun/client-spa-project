@@ -43,29 +43,6 @@ const beatCreate = function(data) {
       });
 };
 
-// const beatCreate = function(data) {
-// return $.ajax({
-//       url: app.api + '/patterns/',
-//       method: 'POST',
-//       data: ''
-//       headers: {
-//         Authorization: 'Token token=' + app.user.token,
-//       },
-//       data: {
-//         'pattern': {
-//           'name': data.patterns.name,
-//           'user_id': app.user.id,
-//           'beats': {
-//             kick: false
-//             snare: false
-//             hatClose: false
-//             hatOpen: false
-//             clap: false
-//           }
-//         }
-//       }
-// });
-// }
 
 //PATCH
 const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap) {
@@ -88,6 +65,13 @@ const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen
   });
 };
 
+const beatRemove = () => $.ajax({
+    url: app.api + '/beats/'+ dataNum,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
 
 
 
@@ -97,60 +81,11 @@ const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen
 
 
 
-// "pattern": {
-//   "name": "Jimmy",
-//   "user_id": "2",
-//   "beat": {
-//     "kick": "true",
-//     "snare": "true",
-//     "hatClose": "true",
-//     "hatOpen": "true",
-//     "clap": "true",
-//     "pattern_id": "17",
-//     "order": "1"
-//     }
-// }
-// }'
-//
-//     // curl --include --request POST http://localhost:3000/patterns \
-//     //   --header "Authorization: Token token=BAhJIiUwZWQ5M2RhYTVlZmYwOWMzOTExZDVmZWM5N2Y2ZGEzNgY6BkVG--1fbbfe83cd2c6d95f8c657abc8a079c524104281" \
-//     //   --header "Content-Type: application/json" \
-//     //   --data '{
-    //     "pattern": {
-    //       "name": "Rock",
-    //       "user_id": "2"
-    //     }
-    //   }'
-
-
-
-
-
-
-//updates the pattern after the "save" button
-//   const patternUpdate = function (gridLocation, player, over) {
-//       return $.ajax({
-//       url: app.api + '/patterns/' + app.pattern.id,
-//       method: 'PATCH',
-//       headers: {
-//         Authorization: 'Token token=' + app.user.token,
-//       },
-//       data: {
-//                 "game": {
-//                   "cell": {
-//                     "index": gridLocation,
-//                     "value": player,
-//                   },
-//                   "over": over,
-//                 }
-//               },
-//   });
-// };
 
 module.exports = {
   beatCreate,
   beatShowAll,
   beatShow,
   beatUpdate
-  // patternUpdate,
+
 };

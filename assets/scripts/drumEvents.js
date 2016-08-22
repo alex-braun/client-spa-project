@@ -5,10 +5,13 @@ const drumApi = require('./drumApi');
 const drumPatterns = require('./drumPatterns');
 const drumUi = require('./drumUi');
 
+let dataId;
+
 //WORKING
 const onShowBeat = function (event) {
-  // drumUi.createdBeat =
   let data = getFormFields(this);
+  dataId = data.beats.id;
+  console.log(data);
   event.preventDefault();
   drumApi.beatShow(data)
     .done(drumUi.showBeatSuccess)
@@ -34,9 +37,16 @@ const onCreateBeat = function (event) {
     .fail(drumUi.failure);
 };
 
+const onDeleteBeat = function (event) {
+  event.preventDefault();
+  drumApi.beatDelete(dataId)
+  .done(drumUi.deleteItemSuccess(event))
+  .fail(drumUi.failure);
+};
 
 //event handlers below
 let currentDrum;
+
 const addDrumHandlers = () => {
 
 //This references the jQuery Knob plugin
@@ -51,6 +61,8 @@ const addDrumHandlers = () => {
   //Trigger pad cannot be selected when no instruments are selected.
   $(function() {
     $('.pad').attr('disabled', true);
+    $('.crud').attr('disabled', true);
+
   });
 
 $(document).click(function() {
@@ -87,8 +99,11 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 // $('.create-pattern').on('submit', onCreatePattern);
 $('.view-all-beats').hide();
 $('#create-beat').on('submit', onCreateBeat);
-$('#show-game').on('submit', onShowBeat);
-
+$('.delete-beat').on('click', onDeleteBeat);
+$('#show-beat').on('submit', onShowBeat);
+$('.search-beat-button').click(function() {
+  $('#show-beat-modal').modal('hide');
+});
 // $('.index-beats').on('click', function() {
 //   $('ul').empty();
 // });
@@ -98,12 +113,15 @@ $('#show-game').on('submit', onShowBeat);
 //   // $('.view-all-beats ul').toggle();
 // });
 
-$('.index-beats').on('click', function() {
-  $('ul').empty();
-});
+// $('.index-beats').on('click', function() {
+//
+// });
 $('.index-beats').click(function(event) {
-  onShowAllBeats(event);
-  $('.view-all-beats').slideToggle(300);
+$('.titles').delay(1000);
+$('ul.get').delay(1000).empty();
+$('.view-all-beats').fadeToggle(1250, function() {
+onShowAllBeats(event);
+  });
 });
 
 

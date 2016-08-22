@@ -13,15 +13,11 @@ const patternFromData = {
 let idNum;
 
 
+const deleteItemSuccess = (event) => {
+  drumPatterns.clearBeat();
 
+};
 
-
-// const createSuccess = function (data) {
-//   app.beat = data.beat
-//   if (data.beat) {
-//     console.log(app.beat);
-//   }
-// };
 
 const createSuccess = function (data) {
   idNum = data.beat.id;
@@ -41,11 +37,6 @@ const showAllSuccess = function (data) {
       console.log(data.beats[i].name);
     $('.name').append('<li>' + data.beats[i].name + '</li>');
     $('.id').append('<li>' + data.beats[i].id + '</li>');
-    // $('.view-all-beats table').append('<tr><td>' + data.beats[i].id + '</td></tr>');
-
-
-      // $('.beats-list').append('<li>' + data.beats[i].id +
-      //  '       '+ data.beats[i].name + '</li>');
       }
     }
 };

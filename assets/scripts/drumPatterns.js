@@ -23,6 +23,18 @@ const beat = {
 let drum;
 
 
+//this clears the pattern after the delete call is made OR if the person wishes
+//to clear the patterns.
+const clearBeat = function() {
+  for (let key in beat) {
+    if (beat.hasOwnProperty(key)) {
+      beat[key] = false;
+    }
+  }
+};
+
+
+
 
 //maps drum patterns to the individual pad indicators.  This function is
 //triggered any time the document is selected by the user.
@@ -39,10 +51,8 @@ let mapPatternsToIndicators = function(inst) {
       $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
       .removeClass('clicked');
     }
-    // console.log(selected);
   }
 };
-
 
 
 // This function constructs the correct drum array with the parameters passed in
@@ -59,10 +69,7 @@ let constructPattern = function(drum, index) {
       }
     }
   }
-  console.log(beat[drum]);
 };
-
-
 
 
 let userSelectDrum = function(inst) {
@@ -70,43 +77,24 @@ drum = inst;
 };
 
 
-
 let padIndex = function(grid) {
   constructPattern(drum, grid);
 };
-
 
 
 let replacePatternFromData = function(object) {
   for (let key in object) {
     beat[key] = object[key];
   }
-
 };
 
 
-// let onSavePattern = function() {
-//   let dataKick;
-//   let dataSnare;
-//   let dataHatClose;
-//   let dataHatOpen;
-//   let dataClap;
-//   for (let i = 0; i < triggerGrid.length; i++) {
-//     dataKick = beat['kick'][i];
-//     dataSnare = beat['snare'][i];
-//     dataHatClose = beat['hatClose'][i];
-//     dataHatOpen = beat['hatOpen'][i];
-//     dataClap = beat['clap'][i];
-//   }
-//   console.log(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//   drumApi.patternUpdate(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//
-// };
-
+//callback for the idNum variable stored from UI beat CREATE and SHOW.
 let num;
 let userSelectId = function(idNum) {
 num = idNum;
 };
+
 
 let onSaveBeat = function() {
   let stringKick = JSON.stringify(beat.kick);
@@ -117,21 +105,6 @@ let onSaveBeat = function() {
   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
   drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
 };
-
-
-
-//   for (let i = 0; i < triggerGrid.length; i++) {
-//     dataKick = beat['kick'][i];
-//     dataSnare = beat['snare'][i];
-//     dataHatClose = beat['hatClose'][i];
-//     dataHatOpen = beat['hatOpen'][i];
-//     dataClap = beat['clap'][i];
-//   }
-//   console.log(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//   drumApi.patternUpdate(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//
-// };
-
 
 
 // const showPatternSuccess = (data) => {
@@ -212,4 +185,5 @@ module.exports = {
   mapPatternsToIndicators,
   replacePatternFromData,
   onSaveBeat,
+  clearBeat
 };
