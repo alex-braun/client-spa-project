@@ -2,6 +2,7 @@
 
 const app = require('./app');
 const drumPatterns = require('./drumPatterns');
+const drumEvents = require('./drumEvents');
 
 const patternFromData = {
   kick: [false,false,false,false,false,false,false,false],
@@ -13,20 +14,24 @@ const patternFromData = {
 let idNum;
 
 
-const deleteItemSuccess = (event) => {
-  drumPatterns.clearBeat();
 
+const deleteBeatSuccess = (event) => {
+  drumPatterns.clearBeat();
 };
 
 
 const createSuccess = function (data) {
   idNum = data.beat.id;
+  let name = data.beat.name;
+  console.log(idNum);
+  console.log(data.beat.name);
   if (data.beat) {
     console.log(data.beat);
   }
   app.beat = data.beat;
   drumPatterns.userSelectId(idNum);
-  return idNum;
+  // debugger;
+  $('.command-bottom').empty().append('<h2>' + data.beat.name + 'created.</h2>');
 };
 
 
@@ -51,6 +56,11 @@ const showBeatSuccess = (data) => {
   patternFromData.clap = JSON.parse(data.beat.clap);
   drumPatterns.replacePatternFromData(patternFromData);
   drumPatterns.userSelectId(idNum);
+};
+
+const showBeatFailure = function (error) {
+  $('.command-bottom').empty().append('<h2>Beat not found</h2>').fadeOut(5000);
+  console.log(error);
 };
   // for (let key in data.beat) {
   //   JSON.parse(data.beat[kick])
@@ -195,5 +205,6 @@ module.exports = {
   createSuccess,
   showAllSuccess,
   showBeatSuccess,
-  // replacePatternFromData
+  deleteBeatSuccess,
+  showBeatFailure
 };
