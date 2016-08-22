@@ -76,6 +76,15 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 });
   //find the correct user selected drum type
     $('.drum.button').click(function() {
+      $(this).closest('.drum-select').find('.drum.indicator')
+      .toggleClass('clicked');
+    $(this).attr('disabled', true);
+
+    $('.drum.button').not(this).closest('.drum-select')
+      .find('.drum.indicator').removeClass('clicked');
+
+    $('.drum.button').not(this).attr('disabled', false);
+
       if ($(this).hasClass('kick')) {
         currentDrum = 'kick';
       }
@@ -114,18 +123,7 @@ $('#show-beat').on('submit', onShowBeat);
 $('.show-beat-button').click(function() {
   $('#show-beat-modal').modal('hide');
 });
-// $('.index-beats').on('click', function() {
-//   $('ul').empty();
-// });
-// $('.index-beats').click('click', onShowAllBeats);
-// $('.index-beats').on('click', function() {
-//   $('.view-all-beats').slideToggle(400);
-//   // $('.view-all-beats ul').toggle();
-// });
 
-// $('.index-beats').on('click', function() {
-//
-// });
 $('.index-beats').click(function(event) {
 $('.titles').delay(1000);
 $('ul.get').delay(1000).empty();
