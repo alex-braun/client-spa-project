@@ -7,8 +7,8 @@ const drumUi = require('./drumUi');
 
 //WORKING
 const onShowBeat = function (event) {
+  // drumUi.createdBeat =
   let data = getFormFields(this);
-  console.log(data);
   event.preventDefault();
   drumApi.beatShow(data)
     .done(drumUi.showBeatSuccess)
@@ -33,14 +33,6 @@ const onCreateBeat = function (event) {
     .done(drumUi.createSuccess)
     .fail(drumUi.failure);
 };
-
-// const onShowPattern = function (event) {
-//   let data = getFormFields(this);
-//   event.preventDefault();
-//   drumApi.patternShow(data)
-//     .done(drumUi.showPatternSuccess)
-//     .fail(drumUi.failure);
-// };
 
 
 //event handlers below
@@ -111,7 +103,7 @@ $('.index-beats').on('click', function() {
 });
 $('.index-beats').click(function(event) {
   onShowAllBeats(event);
-  $('.view-all-beats').slideToggle(800);
+  $('.view-all-beats').slideToggle(300);
 });
 
 
