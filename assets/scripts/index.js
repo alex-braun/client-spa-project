@@ -10,6 +10,7 @@
 // const knobJQuery = require('./jquery.knob.min');
 const authEvents = require('./auth/events');
 const drumEvents = require('./drumEvents');
+const drumUi = require('./drumUi');
 
 
 $(() => {
