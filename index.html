@@ -159,10 +159,10 @@
               <h4 class="modal-title" id="myModalLabel">Load your Beat</h4>
             </div>
             <div class="modal-body">
-              <form id="show-game">
+              <form id="show-beat">
                 <fieldset>
                   <input type="text" name="beats[id]" placeholder="#id">
-                  <input type="submit" name="submit" class= "search-game-button" value="GET">
+                  <input type="submit" name="submit" class= "show-beat-button" value="GET">
                 </fieldset>
               </form>
             </div>
@@ -178,7 +178,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Create Pattern</h4>
+              <h4 class="modal-title" id="myModalLabel">Create Beat</h4>
             </div>
             <div class="modal-body">
               <form id="create-beat">
@@ -224,11 +224,11 @@
   <div class="drum-machine">
     <div class="drum-buttons">
 
-      <div class="save">
-        <div class="save-wrapper">
-          <h3>SAVE<h3>
-          <button type="button" class="btn btn-custom save-beat beat-console">
-          <span class="glyphicon glyphicon-save-file"></span></button>
+      <div class="delete">
+        <div class="delete-wrapper">
+          <h3>DELETE<h3>
+          <button type="button" class="btn btn-custom crud delete-beat beat-console">
+          <span class="glyphicon glyphicon-trash"></span></button>
         </div>
       </div>
 
@@ -236,7 +236,7 @@
             <div class="index">
               <div class="index-wrapper">
                 <h3>VIEW BEATS</h3>
-                <button type="button" class="btn show-all-games index-beats btn-custom beat-console">
+                <button type="button" class="btn show-all-games crud index-beats btn-custom beat-console">
                 <span class="glyphicon glyphicon-list"></span></button>
               </div>
             </div>
@@ -245,7 +245,7 @@
             <div class="show">
               <div class="show-wrapper">
                 <h3>LOAD</h3>
-            <button type="button" class="btn show-beat btn-custom beat-console" data-toggle="modal" data-target="#show-beat-modal">
+            <button type="button" class="btn show-beat crud btn-custom beat-console" data-toggle="modal" data-target="#show-beat-modal">
             <span class="glyphicon glyphicon-open-file"></span></button>
               </div>
             </div>
@@ -254,7 +254,7 @@
       <div class="create">
         <div class="create-wrapper">
           <h3>CREATE</h3>
-      <button type="button" class="btn create-beat btn-custom beat-console" data-toggle="modal" data-target="#create-beat-modal">
+      <button type="button" class="btn create-beat crud btn-custom beat-console" data-toggle="modal" data-target="#create-beat-modal">
         <span class="glyphicon glyphicon-file"></span></button>
         </div>
       </div>
@@ -264,7 +264,7 @@
       <div class="save">
         <div class="save-wrapper">
           <h3>SAVE<h3>
-          <button type="button" class="btn btn-custom save-beat beat-console">
+          <button type="button" class="btn btn-custom crud save-beat beat-console">
           <span class="glyphicon glyphicon-save-file"></span></button>
         </div>
       </div>
