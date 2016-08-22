@@ -7,6 +7,12 @@ const drumUi = require('./drumUi');
 
 let dataId;
 
+//this callback sets dataId to a number for the delete function.
+const getIdNum = function(idNum) {
+  dataId = idNum;
+};
+
+
 //WORKING
 const onShowBeat = function (event) {
   let data = getFormFields(this);
@@ -15,7 +21,7 @@ const onShowBeat = function (event) {
   event.preventDefault();
   drumApi.beatShow(data)
     .done(drumUi.showBeatSuccess)
-    .fail(drumUi.failure);
+    .fail(drumUi.showBeatFailure);
 };
 
 
@@ -30,7 +36,7 @@ const onShowAllBeats = function (event) {
 
 const onCreateBeat = function (event) {
   let data = getFormFields(this);
-  // console.log(data.patterns.name);
+  // dataId = data.beats.id;
   event.preventDefault();
   drumApi.beatCreate(data)
     .done(drumUi.createSuccess)
@@ -40,7 +46,7 @@ const onCreateBeat = function (event) {
 const onDeleteBeat = function (event) {
   event.preventDefault();
   drumApi.beatDelete(dataId)
-  .done(drumUi.deleteItemSuccess(event))
+  .done(drumUi.deleteBeatSuccess(event))
   .fail(drumUi.failure);
 };
 
@@ -98,10 +104,14 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 });
 // $('.create-pattern').on('submit', onCreatePattern);
 $('.view-all-beats').hide();
+
 $('#create-beat').on('submit', onCreateBeat);
+$('.create-beat-button').click(function() {
+  $('#create-beat-modal').modal('hide');
+});
 $('.delete-beat').on('click', onDeleteBeat);
 $('#show-beat').on('submit', onShowBeat);
-$('.search-beat-button').click(function() {
+$('.show-beat-button').click(function() {
   $('#show-beat-modal').modal('hide');
 });
 // $('.index-beats').on('click', function() {
@@ -130,4 +140,5 @@ $('.save-beat').on('click', drumPatterns.onSaveBeat);
 
 module.exports = {
   addDrumHandlers,
+  getIdNum
 };
