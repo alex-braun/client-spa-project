@@ -65,8 +65,8 @@ const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen
   });
 };
 
-const beatRemove = () => $.ajax({
-    url: app.api + '/beats/'+ dataNum,
+const beatDelete = (data) => $.ajax({
+    url: app.api + '/beats/'+ data,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -86,6 +86,6 @@ module.exports = {
   beatCreate,
   beatShowAll,
   beatShow,
-  beatUpdate
-
+  beatUpdate,
+  beatDelete
 };
