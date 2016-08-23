@@ -2,7 +2,6 @@
 const app = require('./app');
 
 
-
 //GET SHOW
 const beatShow = (data) => $.ajax({
     url: app.api + '/beats/' + data.beats.id,
@@ -23,6 +22,7 @@ const beatShowAll = (data) => $.ajax({
     },
 });
 
+//POST CREATE
 const beatCreate = function(data) {
   return $.ajax({
       url: app.api + '/beats/',
@@ -40,7 +40,7 @@ const beatCreate = function(data) {
             'clap': '[false,false,false,false,false,false,false,false]',
             },
           }
-      });
+    });
 };
 
 
@@ -65,8 +65,9 @@ const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen
   });
 };
 
-const beatDelete = (data) => $.ajax({
-    url: app.api + '/beats/'+ data,
+//DESTROY
+const beatDelete = (dataId) => $.ajax({
+    url: app.api + '/beats/'+ dataId,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token,
