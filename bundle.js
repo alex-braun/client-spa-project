@@ -307,11 +307,11 @@ webpackJsonp([0],[
 	var drumPatterns = __webpack_require__(10);
 	var drumUi = __webpack_require__(12);
 
-	var kick = $('.wav-kick');
-	var snare = $('.wav-snare');
-	var clap = $('.wav-clap');
-	var hatClose = $('.wav-hat-close');
-	var hatOpen = $('.wav-hat-open');
+	var kick = $('../audio/wav-kick');
+	var snare = $('../audiowav-snare');
+	var clap = $('../audio/wav-clap');
+	var hatClose = $('../audio/wav-hat-close');
+	var hatOpen = $('../audio/wav-hat-open');
 
 	var dataId = void 0;
 
