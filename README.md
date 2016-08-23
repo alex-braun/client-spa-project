@@ -69,6 +69,8 @@ that I can choose from during playback.
 -I need this to keep time as accurately as possible!
 -I want to be able to share my drum beats with other users.
 
-Currently, this drum machine does not play back sounds--I had 6 days to make this
+Currently, this drum machine only plays back sound when a user selects a specific
+grid.  It does not play back a sound loop (sequence) --I only had 6 days to make this
 wprk from start to finish!
-This project is still ongoing so please check back soon!
+I have a solid foundation on the audio playback functionality needed to reliably
+loop these audio patterns, so please check back soon as this is an ongoing project!
