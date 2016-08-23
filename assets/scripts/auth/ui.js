@@ -1,13 +1,17 @@
 'use strict';
 const app = require('../app');
+
+
+
 let user;
 const success = (data) => {
   console.log(data);
 };
 
+
 const signInSuccess = (data) => {
   app.user = data.user;
-  user = data.user.id
+  user = data.user.id;
   console.log(app);
   $('.command-top').empty().append('<h2>Hello, user: ' + data.user.id + '</h2>').fadeIn(2000);
   $('.command-bottom').empty().append('<h2>Ready to make some beats?</h2>').fadeIn(2000)
@@ -21,6 +25,7 @@ const signOutSuccess = () => {
   $('.command-top').empty().append('<h2>User: ' + user + '<br>Sign out successful</h2>')
   .fadeOut(2000);
   $('.crud').attr('disabled', true);
+
 };
 
 const changePassSuccess = (data) => {

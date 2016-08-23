@@ -64,7 +64,7 @@ h3 {
 }
 
 .drum-machine {
-  height: 420px;
+  height: 320px;
   width: 1040px;
   background: $drum-color;
   display: inline-block;
@@ -107,6 +107,7 @@ h3 {
 .drum-select {
   float: left;
   width: 80px;
+  margin-bottom: 20px;
 }
 
 .indicator {
@@ -143,6 +144,7 @@ p, button {
 
 .trigger-grid {
   background-color: #BABDA2;
+  margin-bottom: 0px;
   height: 70px;
   clear: left;
 }
@@ -217,7 +219,7 @@ visibility: hidden;
 }
 
 .delete-beat {
-  margin: 11px 0;
+  margin: 20px 0;
   padding: 0;
   visibility: visible;
 }
@@ -245,7 +247,7 @@ visibility: hidden;
 }
 
 .save-beat {
-  margin: 11px 0;
+  margin: 20px 0;
   padding: 0;
   visibility: visible;
 }
@@ -348,7 +350,7 @@ visibility: hidden;
   border-radius: 5px;
   // border: 1px solid black;
   position: relative;
-  margin-right: 85px;
+  margin-right: 135px;
   width: 150px;
   float: right;
   bottom: 205px;

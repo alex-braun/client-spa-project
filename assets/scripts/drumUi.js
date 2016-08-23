@@ -62,6 +62,7 @@ const showBeatSuccess = (data) => {
   patternFromData.clap = JSON.parse(data.beat.clap);
   drumPatterns.replacePatternFromData(patternFromData);
   drumPatterns.userSelectId(idNum);
+  $('.command-bottom').empty().append('<h2>Beat successfully saved!</h2>').fadeOut(5000);
 };
 
 const showBeatFailure = function (error) {

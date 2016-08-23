@@ -152,12 +152,13 @@ $('.show-beat-button').click(function() {
   $('#show-beat-modal').modal('hide');
 });
 
+$('.index-beats').click(function() {
+  $('ul.id, ul.name').empty();
+});
+
 $('.index-beats').click(function(event) {
 $('.titles').delay(1000);
-$('ul.get').delay(1000).empty();
-$('.view-all-beats').fadeToggle(1250, function() {
-onShowAllBeats(event);
-  });
+$('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
 });
 
 $('.save-beat').on('click', drumPatterns.onSaveBeat);
