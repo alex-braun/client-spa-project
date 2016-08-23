@@ -5,11 +5,11 @@ const drumApi = require('./drumApi');
 const drumPatterns = require('./drumPatterns');
 const drumUi = require('./drumUi');
 
-const kick = $('../audio/wav-kick');
-const snare = $('../audiowav-snare');
-const clap = $('../audio/wav-clap');
-const hatClose = $('../audio/wav-hat-close');
-const hatOpen = $('../audio/wav-hat-open');
+const kick = $('.wav-kick');
+const snare = $('.wav-snare');
+const clap = $('.wav-clap');
+const hatClose = $('.wav-hat-close');
+const hatOpen = $('.wav-hat-open');
 
 let dataId;
 
