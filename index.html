@@ -26,21 +26,7 @@
       <div class= "command-wrapper">
         <div class="command-top"></div>
         <div class="command-bottom"></div>
-
       </div>
-        <!-- <div class="container-fluid"> -->
-            <!-- <form class="navbar-form navbar-right">
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-in-modal">
-                Sign In</button>
-               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-out-modal">
-                Sign Out</button>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-up-modal">
-                Sign Up</button>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#change-password-modal">
-                Change Password</button>
-            </form>
-        </div>
-      </nav> -->
 
       <!-- SIGN IN MODAL -->
       <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -130,26 +116,6 @@
         </div>
       </div>
 
-      <!-- SHOW GAME MODAL -->
-      <!-- <div class="modal fade" id="show-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Show Game</h4>
-            </div>
-            <div class="modal-body">
-              <form id="show-game">
-                <fieldset>
-                  <input type="text" name="game[id]" placeholder="id#">
-                  <input type="submit" name="submit" class= "search-game-button" value="GET">
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <!-- SHOW BEAT MODAL -->
       <div class="modal fade" id="show-beat-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -193,40 +159,13 @@
       </div>
 
 
-
-
-
-      <!-- CREATE BEAT MODAL -->
-      <!-- <div class="modal fade" id="create-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Create Pattern</h4>
-            </div>
-            <div class="modal-body">
-              <form id="create-game">
-                <fieldset>
-                  <input type="text" name="name" placeholder="name">
-                  <input type="submit" name="submit" class= "create-game-button" value="GET">
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
-
-
       <!--the actual drum machine face-->
   <div class="drum-machine">
     <div class="drum-buttons">
 
       <div class="delete">
         <div class="delete-wrapper">
-          <h3>DELETE<h3>
+          <h3>DELETE</h3>
           <button type="button" class="btn btn-custom crud delete-beat beat-console">
           <span class="glyphicon glyphicon-trash"></span></button>
         </div>
@@ -263,7 +202,7 @@
 <!--save button-->
       <div class="save">
         <div class="save-wrapper">
-          <h3>SAVE<h3>
+          <h3>SAVE</h3>
           <button type="button" class="btn btn-custom crud save-beat beat-console">
           <span class="glyphicon glyphicon-save-file"></span></button>
         </div>
@@ -271,10 +210,6 @@
 
     </div>
 
-<!-- btn-info -->
-<!--
-    <button class="dropdown-toggle btn-custom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <span class="glyphicon glyphicon-menu-hamburger"></span> -->
         <div class="case"></div>
         <div class="case"></div>
 
@@ -282,8 +217,8 @@
       <!--kick drum parameters-->
         <div class="drum-select">
           <div class="drum indicator kick"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial kick-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial kick-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial kick-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button kick">KICK</button>
@@ -292,8 +227,8 @@
       <!--snare drum parameters-->
         <div class="drum-select">
           <div class="drum indicator snare"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial snare-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial snare-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial snare-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button snare">SNARE</button>
@@ -302,8 +237,8 @@
       <!--closed hihat drum parameters-->
         <div class="drum-select">
           <div class="drum indicator hat-close"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial hat-close-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial hat-close-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial hat-close-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button hat-close">HAT C</button>
@@ -312,8 +247,8 @@
       <!--open hihat drum parameters-->
         <div class="drum-select">
           <div class="drum indicator hat-open"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button hat-open">HAT O</button>
@@ -322,8 +257,8 @@
       <!--clap drum parameters-->
         <div class="drum-select">
           <div class="drum indicator clap"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial clap-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial clap-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial clap-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button clap">CLAP</button>
@@ -331,8 +266,8 @@
 
         <div class="drum-select">
           <div class="drum indicator shake"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial shake-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial shake-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial shake-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button-shake">SHAKE</button>
