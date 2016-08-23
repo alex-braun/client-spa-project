@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
+let user;
 
 const onSignUp = function (event) {
   let data = getFormFields(this);
@@ -16,7 +17,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   let data = getFormFields(this);
   event.preventDefault();
-  // $('.player-id').text("Hello, User: " + data);
+  user = data.user;
   api.signIn(data)
   .done(ui.signInSuccess)
   .fail(ui.signInFailure);
@@ -25,6 +26,7 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   let data = getFormFields(this);
   console.log(data);
+  $('.command-bottom').empty().append('<h2>Password update successful</h2>').fadeOut(2000);
   event.preventDefault();
   api.changePassword(data)
   .done(ui.changePassSuccess)
@@ -57,9 +59,6 @@ const addHandlers = () => {
   $('.change-password-button').click(function() {
   $('#change-password-modal').modal('hide');
   });
-
-
-
 };
 
 

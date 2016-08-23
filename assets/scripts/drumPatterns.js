@@ -4,24 +4,35 @@ const drumApi = require('./drumApi');
 const drumEvents = require('./drumEvents');
 const knobJQuery = require('./jquery.knob.min');
 
-// const kick = $('.wav-kick');
-// const snare = $('.wav-snare');
-// const clap = $('.wav-clap');
-// const hatClose = $('.wav-hat-close');
-// const hatOpen = $('.wav-hat-open');
 
-const triggerGrid = ['pad 1', 'pad 2', 'pad 3', 'pad 4', 'pad 5', 'pad 6', 'pad 7', 'pad 8'];
+
+const triggerGrid = ['pad 1', 'pad 2', 'pad 3', 'pad 4', 'pad 5', 'pad 6',
+'pad 7', 'pad 8','pad 9', 'pad 10', 'pad 11', 'pad 12', 'pad 13', 'pad 14', 'pad 15', 'pad 16'];
 
 const beat = {
-  kick: [false,false,false,false,false,false,false,false],
-  snare: [false,false,false,false,false,false,false,false],
-  hatClose: [false,false,false,false,false,false,false,false],
-  hatOpen: [false,false,false,false,false,false,false,false],
-  clap: [false,false,false,false,false,false,false,false],
+  kick: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
+  snare: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
+  hatClose: [false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false,false],
+  hatOpen: [false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false,false],
+  clap: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
 };
 
 let drum;
 
+
+//this clears the pattern after the delete call is made
+const clearBeat = function() {
+  for (let key in beat) {
+    if (beat.hasOwnProperty(key)) {
+      beat[key] = false;
+    }
+  }
+};
 
 
 //maps drum patterns to the individual pad indicators.  This function is
@@ -39,10 +50,8 @@ let mapPatternsToIndicators = function(inst) {
       $(".pad[data-grid ='"+selected+"']").closest('.pad').find('.trigger.indicator')
       .removeClass('clicked');
     }
-    // console.log(selected);
   }
 };
-
 
 
 // This function constructs the correct drum array with the parameters passed in
@@ -59,10 +68,7 @@ let constructPattern = function(drum, index) {
       }
     }
   }
-  console.log(beat[drum]);
 };
-
-
 
 
 let userSelectDrum = function(inst) {
@@ -70,43 +76,24 @@ drum = inst;
 };
 
 
-
 let padIndex = function(grid) {
   constructPattern(drum, grid);
 };
-
 
 
 let replacePatternFromData = function(object) {
   for (let key in object) {
     beat[key] = object[key];
   }
-
 };
 
 
-// let onSavePattern = function() {
-//   let dataKick;
-//   let dataSnare;
-//   let dataHatClose;
-//   let dataHatOpen;
-//   let dataClap;
-//   for (let i = 0; i < triggerGrid.length; i++) {
-//     dataKick = beat['kick'][i];
-//     dataSnare = beat['snare'][i];
-//     dataHatClose = beat['hatClose'][i];
-//     dataHatOpen = beat['hatOpen'][i];
-//     dataClap = beat['clap'][i];
-//   }
-//   console.log(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//   drumApi.patternUpdate(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//
-// };
-
+//callback for the idNum variable stored from UI beat CREATE and SHOW.
 let num;
 let userSelectId = function(idNum) {
 num = idNum;
 };
+
 
 let onSaveBeat = function() {
   let stringKick = JSON.stringify(beat.kick);
@@ -117,21 +104,6 @@ let onSaveBeat = function() {
   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
   drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
 };
-
-
-
-//   for (let i = 0; i < triggerGrid.length; i++) {
-//     dataKick = beat['kick'][i];
-//     dataSnare = beat['snare'][i];
-//     dataHatClose = beat['hatClose'][i];
-//     dataHatOpen = beat['hatOpen'][i];
-//     dataClap = beat['clap'][i];
-//   }
-//   console.log(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//   drumApi.patternUpdate(dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap);
-//
-// };
-
 
 
 // const showPatternSuccess = (data) => {
@@ -212,4 +184,5 @@ module.exports = {
   mapPatternsToIndicators,
   replacePatternFromData,
   onSaveBeat,
+  clearBeat
 };

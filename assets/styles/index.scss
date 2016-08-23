@@ -2,6 +2,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 $background: #929292;
 $drum-color: #464344;
+@font-face{
+  font-family:'digital-clock-font';
+  src: url('../digital-7.regular.ttf');
+ }
 
 body {
   text-align: center;
@@ -9,7 +13,32 @@ body {
   height: 100%;
   width: 100%;
 }
+h2 {
+  color: #ff0000;
+  font-size: 25px;
+  font-family:'digital-clock-font';
+}
 
+.command-top {
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #262727;
+}
+.command-bottom {
+  height: 55px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #262727;
+}
+.command-wrapper{
+  width: 450px;
+  height: 120px;
+  border: 5px solid #10101A;
+  margin: 45px auto 0 auto;
+  border-radius: 5px;
+  background: #262727;
+}
 h3 {
   font-size: 19px;
 }
@@ -21,7 +50,7 @@ h3 {
 }
 
 .glyphicon {
-  font-size: 70px;
+  font-size: 65px;
 }
 
 .title {
@@ -35,7 +64,7 @@ h3 {
 }
 
 .drum-machine {
-  height: 420px;
+  height: 320px;
   width: 1040px;
   background: $drum-color;
   display: inline-block;
@@ -78,6 +107,7 @@ h3 {
 .drum-select {
   float: left;
   width: 80px;
+  margin-bottom: 20px;
 }
 
 .indicator {
@@ -114,6 +144,7 @@ p, button {
 
 .trigger-grid {
   background-color: #BABDA2;
+  margin-bottom: 0px;
   height: 70px;
   clear: left;
 }
@@ -152,20 +183,51 @@ p, button {
 // }
 
 .drum-buttons {
-  margin-right: 10px;
+  margin-right: 0px;
   margin-top: -65px;
   // border:1px solid black;
-  width: 350px;
+  width: 405px;
   float: right;
 }
 // .beat-console {
 // }
 
 
+
+
+
+.delete-wrapper {
+text-align: center;
+border: 1px solid black;
+width: 70px;
+height: 150px;
+// padding: 20px;
+position: relative;
+background-color: rgba(0,0,0,0.8);
+text-decoration-color: black;
+visibility: hidden;
+}
+
+.delete-wrapper:hover {
+  visibility: visible;
+}
+
+.delete {
+  position: relative;
+  float: right;
+  margin: 5px;
+}
+
+.delete-beat {
+  margin: 20px 0;
+  padding: 0;
+  visibility: visible;
+}
+
 .save-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -185,7 +247,7 @@ visibility: hidden;
 }
 
 .save-beat {
-  margin: 11px 0;
+  margin: 20px 0;
   padding: 0;
   visibility: visible;
 }
@@ -193,7 +255,7 @@ visibility: hidden;
 .index-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -221,7 +283,7 @@ visibility: hidden;
 .show-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -251,7 +313,7 @@ visibility: hidden;
 .create-wrapper {
 text-align: center;
 border: 1px solid black;
-width: 75px;
+width: 70px;
 height: 150px;
 // padding: 20px;
 position: relative;
@@ -288,7 +350,7 @@ visibility: hidden;
   border-radius: 5px;
   // border: 1px solid black;
   position: relative;
-  margin-right: 85px;
+  margin-right: 135px;
   width: 150px;
   float: right;
   bottom: 205px;

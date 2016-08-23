@@ -23,19 +23,10 @@
       <div class="title">
         <h1>Drum Machine</h1>
       </div>
-        <!-- <div class="container-fluid"> -->
-            <!-- <form class="navbar-form navbar-right">
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-in-modal">
-                Sign In</button>
-               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-out-modal">
-                Sign Out</button>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-up-modal">
-                Sign Up</button>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#change-password-modal">
-                Change Password</button>
-            </form>
-        </div>
-      </nav> -->
+      <div class= "command-wrapper">
+        <div class="command-top"></div>
+        <div class="command-bottom"></div>
+      </div>
 
       <!-- SIGN IN MODAL -->
       <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -125,26 +116,6 @@
         </div>
       </div>
 
-      <!-- SHOW GAME MODAL -->
-      <!-- <div class="modal fade" id="show-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Show Game</h4>
-            </div>
-            <div class="modal-body">
-              <form id="show-game">
-                <fieldset>
-                  <input type="text" name="game[id]" placeholder="id#">
-                  <input type="submit" name="submit" class= "search-game-button" value="GET">
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <!-- SHOW BEAT MODAL -->
       <div class="modal fade" id="show-beat-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -154,10 +125,10 @@
               <h4 class="modal-title" id="myModalLabel">Load your Beat</h4>
             </div>
             <div class="modal-body">
-              <form id="show-game">
+              <form id="show-beat">
                 <fieldset>
                   <input type="text" name="beats[id]" placeholder="#id">
-                  <input type="submit" name="submit" class= "search-game-button" value="GET">
+                  <input type="submit" name="submit" class= "show-beat-button" value="GET">
                 </fieldset>
               </form>
             </div>
@@ -173,7 +144,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Create Pattern</h4>
+              <h4 class="modal-title" id="myModalLabel">Create Beat</h4>
             </div>
             <div class="modal-body">
               <form id="create-beat">
@@ -188,42 +159,23 @@
       </div>
 
 
-
-
-
-      <!-- CREATE BEAT MODAL -->
-      <!-- <div class="modal fade" id="create-game-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Create Pattern</h4>
-            </div>
-            <div class="modal-body">
-              <form id="create-game">
-                <fieldset>
-                  <input type="text" name="name" placeholder="name">
-                  <input type="submit" name="submit" class= "create-game-button" value="GET">
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
-
-
       <!--the actual drum machine face-->
   <div class="drum-machine">
     <div class="drum-buttons">
+
+      <div class="delete">
+        <div class="delete-wrapper">
+          <h3>DELETE</h3>
+          <button type="button" class="btn btn-custom crud delete-beat beat-console">
+          <span class="glyphicon glyphicon-trash"></span></button>
+        </div>
+      </div>
 
       <!--list beats-->
             <div class="index">
               <div class="index-wrapper">
                 <h3>VIEW BEATS</h3>
-                <button type="button" class="btn show-all-games index-beats btn-custom beat-console">
+                <button type="button" class="btn show-all-games crud index-beats btn-custom beat-console">
                 <span class="glyphicon glyphicon-list"></span></button>
               </div>
             </div>
@@ -232,7 +184,7 @@
             <div class="show">
               <div class="show-wrapper">
                 <h3>LOAD</h3>
-            <button type="button" class="btn show-beat btn-custom beat-console" data-toggle="modal" data-target="#show-beat-modal">
+            <button type="button" class="btn show-beat crud btn-custom beat-console" data-toggle="modal" data-target="#show-beat-modal">
             <span class="glyphicon glyphicon-open-file"></span></button>
               </div>
             </div>
@@ -241,7 +193,7 @@
       <div class="create">
         <div class="create-wrapper">
           <h3>CREATE</h3>
-      <button type="button" class="btn create-beat btn-custom beat-console" data-toggle="modal" data-target="#create-beat-modal">
+      <button type="button" class="btn create-beat crud btn-custom beat-console" data-toggle="modal" data-target="#create-beat-modal">
         <span class="glyphicon glyphicon-file"></span></button>
         </div>
       </div>
@@ -250,18 +202,14 @@
 <!--save button-->
       <div class="save">
         <div class="save-wrapper">
-          <h3>SAVE<h3>
-          <button type="button" class="btn btn-custom save-beat beat-console">
+          <h3>SAVE</h3>
+          <button type="button" class="btn btn-custom crud save-beat beat-console">
           <span class="glyphicon glyphicon-save-file"></span></button>
         </div>
       </div>
 
     </div>
 
-<!-- btn-info -->
-<!--
-    <button class="dropdown-toggle btn-custom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <span class="glyphicon glyphicon-menu-hamburger"></span> -->
         <div class="case"></div>
         <div class="case"></div>
 
@@ -269,8 +217,8 @@
       <!--kick drum parameters-->
         <div class="drum-select">
           <div class="drum indicator kick"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial kick-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial kick-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial kick-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button kick">KICK</button>
@@ -279,8 +227,8 @@
       <!--snare drum parameters-->
         <div class="drum-select">
           <div class="drum indicator snare"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial snare-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial snare-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial snare-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button snare">SNARE</button>
@@ -289,8 +237,8 @@
       <!--closed hihat drum parameters-->
         <div class="drum-select">
           <div class="drum indicator hat-close"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial hat-close-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial hat-close-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial hat-close-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button hat-close">HAT C</button>
@@ -299,8 +247,8 @@
       <!--open hihat drum parameters-->
         <div class="drum-select">
           <div class="drum indicator hat-open"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial hat-open-tune" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button hat-open">HAT O</button>
@@ -309,21 +257,21 @@
       <!--clap drum parameters-->
         <div class="drum-select">
           <div class="drum indicator clap"></div>
-          <p>TUNE</p>
-            <input type="text" class="dial clap-tune" value="0" data-min="-50" data-max="50">
+          <!-- <p>TUNE</p>
+            <input type="text" class="dial clap-tune" value="0" data-min="-50" data-max="50"> -->
           <p>VOL</p>
           <input type="text" class="dial clap-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button clap">CLAP</button>
         </div>
 
-        <div class="drum-select">
+        <!-- <div class="drum-select">
           <div class="drum indicator shake"></div>
           <p>TUNE</p>
             <input type="text" class="dial shake-tune" value="0" data-min="-50" data-max="50">
           <p>VOL</p>
           <input type="text" class="dial shake-vol" value="0" data-min="-50" data-max="50">
           <button type="button" class="drum button-shake">SHAKE</button>
-        </div>
+        </div> -->
 
 <!--the drum pads grid.-->
         <div class="trigger-grid">
@@ -348,7 +296,31 @@
           <button type="button" class="pad 7" data-val="" data-grid="pad 7">
             <div class="trigger indicator"></div>
           </button>
-          <button type="button" class="pad eight" data-val="" data-grid="pad 8">
+          <button type="button" class="pad 8" data-val="" data-grid="pad 8">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 9" data-val="" data-grid="pad 9">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 10" data-val="" data-grid="pad 10">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 11" data-val="" data-grid="pad 11">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 12" data-val="" data-grid="pad 12">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 13" data-val="" data-grid="pad 13">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 14" data-val="" data-grid="pad 14">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 15" data-val="" data-grid="pad 15">
+            <div class="trigger indicator"></div>
+          </button>
+          <button type="button" class="pad 16" data-val="" data-grid="pad 16">
             <div class="trigger indicator"></div>
           </button>
         </div>
@@ -368,12 +340,9 @@
                 </td>
             </table>
 
-
-
             <ul class="beats-list"></ul>
           </div>
         </div>
-
       </div>
 
   <audio preload="auto" src="/audio/f9hrdk18.wav" class="wav-kick"></audio>
@@ -381,13 +350,6 @@
   <audio preload="auto" src="/audio/f9clp15.wav" class="wav-clap"></audio>
   <audio preload="auto" src="/audio/f9clht04.wav" class="wav-hat-close"></audio>
   <audio preload="auto" src="/audio/f9opht04.wav" class="wav-hat-open"></audio>
-
-
-
-
-
-
-
 
     </body>
 </html>
