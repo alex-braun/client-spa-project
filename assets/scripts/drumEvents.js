@@ -150,6 +150,7 @@ $('.delete-beat').on('click', onDeleteBeat);
 $('#show-beat').on('submit', onShowBeat);
 $('.show-beat-button').click(function() {
   $('#show-beat-modal').modal('hide');
+  drumPatterns.clearBeat();
 });
 
 $('.index-beats').click(function() {

@@ -28,15 +28,11 @@ const deleteBeatSuccess = (event) => {
 
 const createSuccess = function (data) {
   idNum = data.beat.id;
-  let name = data.beat.name;
-  console.log(idNum);
-  console.log(data.beat.name);
   if (data.beat) {
     console.log(data.beat);
   }
   app.beat = data.beat;
   drumPatterns.userSelectId(idNum);
-  // debugger;
   $('.command-bottom').empty().append('<h2>' + data.beat.name + 'created.</h2>');
 };
 
