@@ -5,12 +5,18 @@ const drumPatterns = require('./drumPatterns');
 const drumEvents = require('./drumEvents');
 
 const patternFromData = {
-  kick: [false,false,false,false,false,false,false,false],
-  snare: [false,false,false,false,false,false,false,false],
-  hatClose: [false,false,false,false,false,false,false,false],
-  hatOpen: [false,false,false,false,false,false,false,false],
-  clap: [false,false,false,false,false,false,false,false],
+  kick: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
+  snare: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
+  hatClose: [false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false,false],
+  hatOpen: [false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false,false],
+  clap: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
 };
+
 let idNum;
 
 

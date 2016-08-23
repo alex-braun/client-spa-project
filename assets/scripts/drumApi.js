@@ -33,11 +33,11 @@ const beatCreate = function(data) {
       data: {
           'beat': {
             'name': data.beat.name,
-            'kick': '[false,false,false,false,false,false,false,false]',
-            'snare': '[false,false,false,false,false,false,false,false]',
-            'hatClose': '[false,false,false,false,false,false,false,false]',
-            'hatOpen': '[false,false,false,false,false,false,false,false]',
-            'clap': '[false,false,false,false,false,false,false,false]',
+            'kick': '[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]',
+            'snare': '[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]',
+            'hatClose': '[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]',
+            'hatOpen': '[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]',
+            'clap': '[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]',
             },
           }
     });
@@ -73,15 +73,6 @@ const beatDelete = (dataId) => $.ajax({
       Authorization: 'Token token=' + app.user.token,
     },
   });
-
-
-
-
-
-
-
-
-
 
 module.exports = {
   beatCreate,

@@ -6,14 +6,20 @@ const knobJQuery = require('./jquery.knob.min');
 
 
 
-const triggerGrid = ['pad 1', 'pad 2', 'pad 3', 'pad 4', 'pad 5', 'pad 6', 'pad 7', 'pad 8'];
+const triggerGrid = ['pad 1', 'pad 2', 'pad 3', 'pad 4', 'pad 5', 'pad 6',
+'pad 7', 'pad 8','pad 9', 'pad 10', 'pad 11', 'pad 12', 'pad 13', 'pad 14', 'pad 15', 'pad 16'];
 
 const beat = {
-  kick: [false,false,false,false,false,false,false,false],
-  snare: [false,false,false,false,false,false,false,false],
-  hatClose: [false,false,false,false,false,false,false,false],
-  hatOpen: [false,false,false,false,false,false,false,false],
-  clap: [false,false,false,false,false,false,false,false],
+  kick: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
+  snare: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
+  hatClose: [false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false,false],
+  hatOpen: [false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false,false],
+  clap: [false,false,false,false,false,false,false,false,false,false,false,false,
+    false,false,false,false],
 };
 
 let drum;
