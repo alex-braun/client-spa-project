@@ -27,7 +27,7 @@ let drum;
 const clearBeat = function() {
   for (let key in beat) {
     let drum = beat[key];
-      for (let i = 0; i < drum.length; i++) {
+      for (let i = 0; i < triggerGrid.length; i++) {
         drum[i] = false;
       }
   }
