@@ -20,19 +20,30 @@ const createSuccess = function (data) {
   if (data.beat) {
   }
   app.beat = data.beat;
-  $('.command-bottom').empty().append('<h2>' + data.beat.name + 'created.</h2>');
+  $('.command-bottom').empty().append('<h2>' + data.beat.name + ' created.</h2>');
 };
 
+
+// const showAllSuccess = function (data) {
+//   if (data) {
+//     for (let i = 0; i < data.beats.length; i++) {
+//     $('.name').append('<li>' + data.beats[i].name + '</li>');
+//     $('.id').append('<li>' + data.beats[i].id + '</li>');
+//       }
+//     }
+// };
+
+let displayBeats = function(data) {
+  console.log(data.beats);
+  let beatTemplate = require('./templates/beats.handlebars');
+  $('.command-bottom').empty().append(beatTemplate({
+  beats:data.beats
+}));
+};
 
 const showAllSuccess = function (data) {
-  if (data) {
-    for (let i = 0; i < data.beats.length; i++) {
-    $('.name').append('<li>' + data.beats[i].name + '</li>');
-    $('.id').append('<li>' + data.beats[i].id + '</li>');
-      }
-    }
+  displayBeats(data);
 };
-
 
 const showBeatSuccess = (data) => {
   idNum = data.beat.id;
@@ -55,9 +66,11 @@ const updateBeatSuccess = function() {
 
 
 const showBeatFailure = function (error) {
+  drumPatterns.clearBeat();
   $('.command-bottom').empty().append('<h2 class = "message">Beat not found</h2>');
   $('.message').fadeOut(5000);
   console.log(error);
+
 };
 
 
@@ -74,6 +87,7 @@ const failure = (error) => {
 
 
 module.exports = {
+  displayBeats,
   createSuccess,
   showAllSuccess,
   showBeatSuccess,
