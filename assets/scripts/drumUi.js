@@ -4,21 +4,21 @@ const app = require('./app');
 const drumPatterns = require('./drumPatterns');
 const drumEvents = require('./drumEvents');
 
-const patternFromData = {
-  kick: [false,false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false],
-  snare: [false,false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false],
-  hatClose: [false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false,false],
-  hatOpen: [false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false,false],
-  clap: [false,false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false],
-};
+// const patternFromData = {
+//   kick: [false,false,false,false,false,false,false,false,false,false,false,false,
+//     false,false,false,false],
+//   snare: [false,false,false,false,false,false,false,false,false,false,false,false,
+//     false,false,false,false],
+//   hatClose: [false,false,false,false,false,false,false,false,false,false,false,
+//     false,false,false,false,false],
+//   hatOpen: [false,false,false,false,false,false,false,false,false,false,false,
+//     false,false,false,false,false],
+//   clap: [false,false,false,false,false,false,false,false,false,false,false,false,
+//     false,false,false,false],
+// };
 
+//global variable that always takes the current beat id.
 let idNum;
-
 
 
 const deleteBeatSuccess = (event) => {
@@ -29,10 +29,11 @@ const deleteBeatSuccess = (event) => {
 const createSuccess = function (data) {
   idNum = data.beat.id;
   if (data.beat) {
+    // drumPatterns.userSelectId(idNum);
     console.log(data.beat);
   }
   app.beat = data.beat;
-  drumPatterns.userSelectId(idNum);
+
   $('.command-bottom').empty().append('<h2>' + data.beat.name + 'created.</h2>');
 };
 
@@ -51,18 +52,34 @@ const showAllSuccess = function (data) {
 
 const showBeatSuccess = (data) => {
   idNum = data.beat.id;
-  patternFromData.kick = JSON.parse(data.beat.kick);
-  patternFromData.snare = JSON.parse(data.beat.snare);
-  patternFromData.hatClose = JSON.parse(data.beat.hatClose);
-  patternFromData.hatOpen = JSON.parse(data.beat.hatOpen);
-  patternFromData.clap = JSON.parse(data.beat.clap);
+  let patternFromData = {
+  kick: JSON.parse(data.beat.kick),
+  snare: JSON.parse(data.beat.snare),
+  hatClose: JSON.parse(data.beat.hatClose),
+  hatOpen: JSON.parse(data.beat.hatOpen),
+  clap: JSON.parse(data.beat.clap),
+};
+  console.log(idNum);
   drumPatterns.replacePatternFromData(patternFromData);
-  drumPatterns.userSelectId(idNum);
-  $('.command-bottom').empty().append('<h2>Beat successfully saved!</h2>').fadeOut(5000);
+  drumEvents.getIdNum(idNum);
+  $('.command-bottom').empty().append('<h2 class = "message">Beat successfully saved!</h2>');
+  $('.message').fadeOut(5000);
+};
+
+const updateBeatSuccess = function() {
+  $('.command-bottom').empty().append('<h2 class = "message">Beat successfully saved!</h2>');
+  $('.message').fadeOut(5000);
 };
 
 const showBeatFailure = function (error) {
-  $('.command-bottom').empty().append('<h2>Beat not found</h2>').fadeOut(5000);
+  $('.command-bottom').empty().append('<h2 class = "message">Beat not found</h2>');
+  $('.message').fadeOut(5000);
+  console.log(error);
+};
+
+const updateBeatFailure = function (error) {
+  $('.command-bottom').html('<h2 class = "message">Please create a beat first</h2>');
+  $('.message').fadeOut(5000);
   console.log(error);
 };
 
@@ -73,11 +90,14 @@ const failure = (error) => {
 
 
 
+
 module.exports = {
   failure,
   createSuccess,
   showAllSuccess,
   showBeatSuccess,
   deleteBeatSuccess,
-  showBeatFailure
+  showBeatFailure,
+  updateBeatFailure,
+  updateBeatSuccess
 };
