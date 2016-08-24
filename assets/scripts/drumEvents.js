@@ -16,6 +16,7 @@ let dataId;
 //This callback sets dataId to a number for the delete function.
 const getIdNum = function(idNum) {
   dataId = idNum;
+  return dataId;
 };
 
 
@@ -41,6 +42,7 @@ const onShowAllBeats = function (event) {
 
 const onCreateBeat = function (event) {
   let data = getFormFields(this);
+  console.log(data);
   // dataId = data.beats.id;
   event.preventDefault();
   drumApi.beatCreate(data)
@@ -48,6 +50,20 @@ const onCreateBeat = function (event) {
     .fail(drumUi.failure);
 };
 
+const onUpdateBeat = function() {
+  if (typeof dataId === 'undefined') {
+    drumUi.updateBeatFailure();
+  } else {
+  let stringKick = JSON.stringify(drumPatterns.beat.kick);
+  let stringSnare = JSON.stringify(beat.snare);
+  let stringHatClose = JSON.stringify(beat.hatClose);
+  let stringHatOpen = JSON.stringify(beat.hatOpen);
+  let stringClap = JSON.stringify(beat.clap);
+  // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  drumUi.updateBeatSuccess();
+  drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  }
+};
 
 const onDeleteBeat = function (event) {
   event.preventDefault();
@@ -162,7 +178,7 @@ $('.titles').delay(1000);
 $('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
 });
 
-$('.save-beat').on('click', drumPatterns.onSaveBeat);
+$('.save-beat').on('click', onUpdateBeat);
 };
 
 module.exports = {
