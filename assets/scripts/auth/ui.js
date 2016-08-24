@@ -1,6 +1,6 @@
 'use strict';
 const app = require('../app');
-
+const drumPatterns = require('../drumPatterns');
 
 
 let user;
@@ -20,10 +20,12 @@ const signInSuccess = (data) => {
 };
 
 const signOutSuccess = () => {
+  drumPatterns.clearBeat();
   delete app.user;
   console.log(app);
   $('.command-top').empty().append('<h2 class = "main">User: ' + user + '<br>Sign out successful</h2>');
   $('.main').fadeOut(3000);
+  $('.command-bottom').empty();
   $('.crud').attr('disabled', true);
 
 };
