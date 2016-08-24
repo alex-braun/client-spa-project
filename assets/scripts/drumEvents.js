@@ -13,12 +13,6 @@ const hatOpen = $('.wav-hat-open');
 
 let dataId;
 
-//This callback sets dataId to a number for the delete function.
-const getIdNum = function(idNum) {
-  dataId = idNum;
-  return dataId;
-};
-
 
 const onShowBeat = function (event) {
   let data = getFormFields(this);
@@ -51,17 +45,19 @@ const onCreateBeat = function (event) {
 };
 
 const onUpdateBeat = function() {
+  console.log(dataId);
+  console.log(drumPatterns.beat);
   if (typeof dataId === 'undefined') {
     drumUi.updateBeatFailure();
   } else {
   let stringKick = JSON.stringify(drumPatterns.beat.kick);
-  let stringSnare = JSON.stringify(beat.snare);
-  let stringHatClose = JSON.stringify(beat.hatClose);
-  let stringHatOpen = JSON.stringify(beat.hatOpen);
-  let stringClap = JSON.stringify(beat.clap);
+  let stringSnare = JSON.stringify(drumPatterns.beat.snare);
+  let stringHatClose = JSON.stringify(drumPatterns.beat.hatClose);
+  let stringHatOpen = JSON.stringify(drumPatterns.beat.hatOpen);
+  let stringClap = JSON.stringify(drumPatterns.beat.clap);
   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
   drumUi.updateBeatSuccess();
-  drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  drumApi.beatUpdate(dataId,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
   }
 };
 
@@ -74,7 +70,6 @@ const onDeleteBeat = function (event) {
 
 //event handlers below
 let currentDrum;
-
 
 
 const addDrumHandlers = () => {
@@ -155,9 +150,7 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 }
 });
 
-// $('.create-pattern').on('submit', onCreatePattern);
 $('.view-all-beats').hide();
-
 $('#create-beat').on('submit', onCreateBeat);
 $('.create-beat-button').click(function() {
   $('#create-beat-modal').modal('hide');
@@ -166,22 +159,17 @@ $('.delete-beat').on('click', onDeleteBeat);
 $('#show-beat').on('submit', onShowBeat);
 $('.show-beat-button').click(function() {
   $('#show-beat-modal').modal('hide');
-  drumPatterns.clearBeat();
 });
-
 $('.index-beats').click(function() {
   $('ul.id, ul.name').empty();
 });
-
 $('.index-beats').click(function(event) {
 $('.titles').delay(1000);
 $('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
 });
-
 $('.save-beat').on('click', onUpdateBeat);
 };
 
 module.exports = {
   addDrumHandlers,
-  getIdNum
 };
