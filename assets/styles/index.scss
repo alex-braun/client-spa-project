@@ -30,6 +30,7 @@ h2 {
   padding: 0;
   margin: 0;
   border: 1px solid #262727;
+  overflow: auto;
 }
 .command-wrapper{
   width: 450px;
@@ -351,17 +352,23 @@ visibility: hidden;
 // }
 
 .view-all-beats {
-  display: table;
+  // display: table;
   border-radius: 5px;
   // border: 1px solid black;
   position: relative;
   margin-right: 135px;
-  width: 150px;
+  width: 250px;
   float: right;
   bottom: 205px;
   background-color: #070D1A;
   text-decoration-color: yellow;
 }
+
+// div.command-bottom {
+//     width: 100px;
+//     height: 200px;
+//     overflow: auto;
+// }
 
 ul li {
   text-align: left;
