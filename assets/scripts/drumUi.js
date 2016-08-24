@@ -34,7 +34,6 @@ const createSuccess = function (data) {
 // };
 
 let displayBeats = function(data) {
-  console.log(data.beats);
   let beatTemplate = require('./templates/beats.handlebars');
   $('.command-bottom').empty().append(beatTemplate({
   beats:data.beats
@@ -42,6 +41,7 @@ let displayBeats = function(data) {
 };
 
 const showAllSuccess = function (data) {
+  // console.log(data.beats.id);
   displayBeats(data);
 };
 
