@@ -1,8 +1,9 @@
 'use strict';
 
-const drumApi = require('./drumApi');
-const drumEvents = require('./drumEvents');
+// const drumApi = require('./drumApi');
+// const drumEvents = require('./drumEvents');
 const knobJQuery = require('./jquery.knob.min');
+// const drumUi = require('./drumUi');
 
 
 
@@ -89,21 +90,27 @@ let replacePatternFromData = function(object) {
 
 
 //callback for the idNum variable stored from UI beat CREATE and SHOW.
-let num;
-let userSelectId = function(idNum) {
-num = idNum;
-};
+// let num;
+// let userSelectId = function(idNum) {
+// num = idNum;
+// };
 
 
-let onSaveBeat = function() {
-  let stringKick = JSON.stringify(beat.kick);
-  let stringSnare = JSON.stringify(beat.snare);
-  let stringHatClose = JSON.stringify(beat.hatClose);
-  let stringHatOpen = JSON.stringify(beat.hatOpen);
-  let stringClap = JSON.stringify(beat.clap);
-  // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
-  drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
-};
+// let onSaveBeat = function() {
+//   if (typeof num === 'undefined') {
+//     drumUi.showSaveFailure();
+//   } else {
+//   let stringKick = JSON.stringify(beat.kick);
+//   let stringSnare = JSON.stringify(beat.snare);
+//   let stringHatClose = JSON.stringify(beat.hatClose);
+//   let stringHatOpen = JSON.stringify(beat.hatOpen);
+//   let stringClap = JSON.stringify(beat.clap);
+//   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+//   drumUi.saveBeatSuccess();
+//   drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+//   }
+// };
+
 
 
 // const showPatternSuccess = (data) => {
@@ -180,9 +187,9 @@ module.exports = {
   constructPattern,
   padIndex,
   userSelectDrum,
-  userSelectId,
+  // userSelectId,
   mapPatternsToIndicators,
   replacePatternFromData,
-  onSaveBeat,
+  // onSaveBeat,
   clearBeat
 };
