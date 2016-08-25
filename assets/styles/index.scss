@@ -18,7 +18,11 @@ h2 {
   font-size: 25px;
   font-family:'digital-clock-font';
 }
-
+h5 {
+  color: #ff0000;
+  font-size: 15px;
+  font-family:'digital-clock-font';
+}
 .command-top {
   height: 55px;
   margin: 0;
@@ -32,9 +36,16 @@ h2 {
   border: 1px solid #262727;
   overflow: auto;
 }
+.command-middle {
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #262727;
+}
+
 .command-wrapper{
   width: 450px;
-  height: 120px;
+  height: 140px;
   border: 5px solid #10101A;
   margin: 45px auto 0 auto;
   border-radius: 5px;

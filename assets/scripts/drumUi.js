@@ -42,6 +42,7 @@ let displayBeats = function(data) {
 
 const showAllSuccess = function (data) {
   // console.log(data.beats.id);
+  $('.command-middle').empty().append('<h5 class = "message">SELECT A BEAT</h5>');
   displayBeats(data);
 };
 

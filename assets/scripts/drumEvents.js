@@ -150,7 +150,7 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 }
 });
 
-$('.view-all-beats').hide();
+// $('.view-all-beats').hide();
 $('#create-beat').on('submit', onCreateBeat);
 $('.create-beat-button').click(function() {
   $('#create-beat-modal').modal('hide');
