@@ -14,12 +14,14 @@ const hatOpen = $('.wav-hat-open');
 let dataId;
 
 
-const onShowBeat = function (event) {
-  let data = getFormFields(this);
-  dataId = data.beats.id;
-  console.log(data);
+const onShowBeat = function (id) {
+  // let data = getFormFields(this);
+  // id = $(this).data("id");
+  console.log(id);
+  // dataId = data.id;
+  // console.log(data);
   event.preventDefault();
-  drumApi.beatShow(data)
+  drumApi.beatShow(id)
     .done(drumUi.showBeatSuccess)
     .fail(drumUi.showBeatFailure);
 };
@@ -150,16 +152,23 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 }
 });
 
+$(document).on("click", ".list", function() {
+let id = $(this).data('id');
+onShowBeat(id);
+});
 // $('.view-all-beats').hide();
 $('#create-beat').on('submit', onCreateBeat);
 $('.create-beat-button').click(function() {
   $('#create-beat-modal').modal('hide');
 });
 $('.delete-beat').on('click', onDeleteBeat);
-$('#show-beat').on('submit', onShowBeat);
-$('.show-beat-button').click(function() {
-  $('#show-beat-modal').modal('hide');
-});
+// $('#show-beat').on('submit', onShowBeat);
+// $('.show-beat-button').click(function() {
+//   $('#show-beat-modal').modal('hide');
+// });
+// $('li.list').on('click', function() {
+//   alert($(this).data('id'));
+// });
 $('.index-beats').click(function() {
   $('ul').empty();
 });

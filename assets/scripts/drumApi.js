@@ -3,10 +3,10 @@ const app = require('./app');
 
 
 //GET SHOW
-const beatShow = (data) => $.ajax({
-    url: app.api + '/beats/' + data.beats.id,
+const beatShow = (id) => $.ajax({
+    url: app.api + '/beats/' + id,
     method: 'GET',
-    data,
+    // data,
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },

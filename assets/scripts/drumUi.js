@@ -35,13 +35,16 @@ const createSuccess = function (data) {
 
 let displayBeats = function(data) {
   let beatTemplate = require('./templates/beats.handlebars');
+
   $('.command-bottom').empty().append(beatTemplate({
   beats:data.beats
+
 }));
 };
 
 const showAllSuccess = function (data) {
-  // console.log(data.beats.id);
+  console.log(data.beats.name);
+
   $('.command-middle').empty().append('<h5 class = "message">SELECT A BEAT</h5>');
   displayBeats(data);
 };
