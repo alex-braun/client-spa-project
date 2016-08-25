@@ -161,12 +161,12 @@ $('.show-beat-button').click(function() {
   $('#show-beat-modal').modal('hide');
 });
 $('.index-beats').click(function() {
-  $('ul.id, ul.name').empty();
+  $('ul').empty();
 });
-$('.index-beats').click(function(event) {
-$('.titles').delay(1000);
-$('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
-});
+$('.index-beats').on('click',onShowAllBeats);
+
+// $('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
+
 $('.save-beat').on('click', onUpdateBeat);
 };
 
