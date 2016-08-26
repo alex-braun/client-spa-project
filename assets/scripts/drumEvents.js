@@ -11,13 +11,13 @@ const clap = $('.wav-clap');
 const hatClose = $('.wav-hat-close');
 const hatOpen = $('.wav-hat-open');
 
-let dataId;
+let id;
 
 
 const onShowBeat = function (id) {
   // let data = getFormFields(this);
   // id = $(this).data("id");
-  console.log(id);
+  // console.log(id);
   // dataId = data.id;
   // console.log(data);
   event.preventDefault();
@@ -38,7 +38,7 @@ const onShowAllBeats = function (event) {
 
 const onCreateBeat = function (event) {
   let data = getFormFields(this);
-  console.log(data);
+  // console.log(data);
   // dataId = data.beats.id;
   event.preventDefault();
   drumApi.beatCreate(data)
@@ -47,9 +47,9 @@ const onCreateBeat = function (event) {
 };
 
 const onUpdateBeat = function() {
-  console.log(dataId);
-  console.log(drumPatterns.beat);
-  if (typeof dataId === 'undefined') {
+  console.log(drumUi.id);
+  // console.log(drumPatterns.beat);
+  if (typeof drumUi.id === 'undefined') {
     drumUi.updateBeatFailure();
   } else {
   let stringKick = JSON.stringify(drumPatterns.beat.kick);
@@ -59,14 +59,15 @@ const onUpdateBeat = function() {
   let stringClap = JSON.stringify(drumPatterns.beat.clap);
   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
   drumUi.updateBeatSuccess();
-  drumApi.beatUpdate(dataId,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  drumApi.beatUpdate(drumUi.id,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
   }
 };
 
 const onDeleteBeat = function (event) {
   event.preventDefault();
-  drumApi.beatDelete(dataId)
-  .done(drumUi.deleteBeatSuccess(event))
+  // console.log(id);
+  drumApi.beatDelete(drumUi.id)
+  .done(drumUi.deleteBeatSuccess(drumUi.id))
   .fail(drumUi.failure);
 };
 
@@ -153,7 +154,7 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 });
 
 $(document).on("click", ".list", function() {
-let id = $(this).data('id');
+id = $(this).data('id');
 onShowBeat(id);
 });
 // $('.view-all-beats').hide();
@@ -169,9 +170,9 @@ $('.delete-beat').on('click', onDeleteBeat);
 // $('li.list').on('click', function() {
 //   alert($(this).data('id'));
 // });
-$('.index-beats').click(function() {
-  $('ul').empty();
-});
+// $('.index-beats').click(function() {
+//   $('ul').empty();
+// });
 $('.index-beats').on('click',onShowAllBeats);
 
 // $('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
