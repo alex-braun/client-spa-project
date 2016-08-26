@@ -3,10 +3,10 @@ const app = require('./app');
 
 
 //GET SHOW
-const beatShow = (data) => $.ajax({
-    url: app.api + '/beats/' + data.beats.id,
+const beatShow = (id) => $.ajax({
+    url: app.api + '/beats/' + id,
     method: 'GET',
-    data,
+    // data,
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
@@ -45,10 +45,10 @@ const beatCreate = function(data) {
 
 
 //PATCH
-const beatUpdate = function(dataNum, dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap) {
-  console.log(app.beat);
+const beatUpdate = function(id, dataKick,dataSnare,dataHatClose,dataHatOpen,dataClap) {
+  // console.log(app.beat);
   return $.ajax({
-  url: app.api + '/beats/' + dataNum,
+  url: app.api + '/beats/' + id,
   method: 'PATCH',
   headers: {
     Authorization: 'Token token=' + app.user.token,

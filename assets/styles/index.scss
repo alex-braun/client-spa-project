@@ -1,7 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-$background: #929292;
-$drum-color: #464344;
+$background: #8D918F;
+$drum-color: #393B3A;
 @font-face{
   font-family:'digital-clock-font';
   src: url('../digital-7.regular.ttf');
@@ -18,7 +18,11 @@ h2 {
   font-size: 25px;
   font-family:'digital-clock-font';
 }
-
+h5 {
+  color: #ff0000;
+  font-size: 15px;
+  font-family:'digital-clock-font';
+}
 .command-top {
   height: 55px;
   margin: 0;
@@ -30,10 +34,18 @@ h2 {
   padding: 0;
   margin: 0;
   border: 1px solid #262727;
+  overflow: auto;
 }
+.command-middle {
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #262727;
+}
+
 .command-wrapper{
   width: 450px;
-  height: 120px;
+  height: 140px;
   border: 5px solid #10101A;
   margin: 45px auto 0 auto;
   border-radius: 5px;
@@ -68,11 +80,12 @@ h3 {
   width: 1040px;
   background: $drum-color;
   display: inline-block;
-  box-shadow: 0 10px 70px #444444, inset 0 10px rgba(255, 255, 255, 0.1),
+  box-shadow: 40px 20px 70px #393B3A, inset 0 10px rgba(255, 255, 255, 0.1),
   inset 0 -10px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 15px;
   margin-top: 75px;
-  padding: 70px 60px 160px;
+  padding: 70px 60px 160px;;
+
   position: relative;
   top: 50%;
 }
@@ -99,8 +112,8 @@ h3 {
     bottom: 0;
     left: 0;
     right: auto;
-    background: #262727;
-    width: 40px;
+    background: #101012;
+    width: 30px;
     box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.2), inset 0 10px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -113,7 +126,7 @@ h3 {
 .indicator {
     content: " ";
     display: inline-block;
-    background: #620000;
+    background: #4F0000;
     // background: #f01f07;
 
     border-radius: 50%;
@@ -124,7 +137,7 @@ h3 {
 }
 
 .clicked {
-  background: #ff0000;
+  background: #3AFF06;
   content: " ";
   display: inline-block;
   // background: #f01f07;
@@ -143,7 +156,7 @@ p, button {
 }
 
 .trigger-grid {
-  background-color: #BABDA2;
+  background-color: #1C1C1C;
   margin-bottom: 0px;
   height: 70px;
   clear: left;
@@ -154,7 +167,9 @@ p, button {
   height: 54px;
   width: 49.5px;
   border: 1px solid #000;
+  border-radius: 7px;
   margin: 8px 4px;
+  background-color: #999698;
 }
 
 .pad.one {
@@ -192,7 +207,9 @@ p, button {
 // .beat-console {
 // }
 
-
+.highlight h3 {
+  color: #8C8C8C;
+}
 
 
 
@@ -346,27 +363,29 @@ visibility: hidden;
 // }
 
 .view-all-beats {
-  display: table;
+  // display: table;
   border-radius: 5px;
   // border: 1px solid black;
   position: relative;
   margin-right: 135px;
-  width: 150px;
+  width: 250px;
   float: right;
   bottom: 205px;
   background-color: #070D1A;
   text-decoration-color: yellow;
 }
 
+// div.command-bottom {
+//     width: 100px;
+//     height: 200px;
+//     overflow: auto;
+// }
+
 ul li {
-  text-align: left;
+  text-align: center;
   padding: 0;
   color: black;
   list-style-type: none;
   color: #B5B3AA;
 
-}
-th {
-  color: #B5B3AA;
-  font-size: 15px;
 }

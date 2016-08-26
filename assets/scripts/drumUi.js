@@ -2,71 +2,99 @@
 
 const app = require('./app');
 const drumPatterns = require('./drumPatterns');
-const drumEvents = require('./drumEvents');
+// const drumEvents = require('./drumEvents');
 
-const patternFromData = {
-  kick: [false,false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false],
-  snare: [false,false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false],
-  hatClose: [false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false,false],
-  hatOpen: [false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false,false],
-  clap: [false,false,false,false,false,false,false,false,false,false,false,false,
-    false,false,false,false],
-};
+//global variable that always takes the current beat id.
 
-let idNum;
-
+let id;
 
 
 const deleteBeatSuccess = (event) => {
   drumPatterns.clearBeat();
+  $('.command-bottom').empty().append('<h2 class = "message">Beat succesfully deleted</h2>');
+  $('.message').fadeOut(5000);
 };
 
 
 const createSuccess = function (data) {
-  idNum = data.beat.id;
-  let name = data.beat.name;
-  console.log(idNum);
-  console.log(data.beat.name);
+  id = data.beat.id;
+  console.log(id);
   if (data.beat) {
-    console.log(data.beat);
   }
   app.beat = data.beat;
-  drumPatterns.userSelectId(idNum);
-  // debugger;
-  $('.command-bottom').empty().append('<h2>' + data.beat.name + 'created.</h2>');
+  $('.command-bottom').empty().append('<h2>' + data.beat.name + ' created.</h2>');
+  drumPatterns.clearBeat();
+  return id;
 };
 
+
+// const showAllSuccess = function (data) {
+//   if (data) {
+//     for (let i = 0; i < data.beats.length; i++) {
+//     $('.name').append('<li>' + data.beats[i].name + '</li>');
+//     $('.id').append('<li>' + data.beats[i].id + '</li>');
+//       }
+//     }
+// };
+
+let displayBeats = function(data) {
+  let beatTemplate = require('./templates/beats.handlebars');
+
+  $('.command-bottom').empty().append(beatTemplate({
+  beats:data.beats
+
+}));
+};
 
 const showAllSuccess = function (data) {
-  if (data) {
-    console.log(data.beats);
-    for (let i = 0; i < data.beats.length; i++) {
-      console.log(data.beats[i].name);
-    $('.name').append('<li>' + data.beats[i].name + '</li>');
-    $('.id').append('<li>' + data.beats[i].id + '</li>');
-      }
-    }
-};
+  console.log(data.beats.name);
 
+  $('.command-middle').empty().append('<h5 class = "message">SELECT A BEAT</h5>');
+  displayBeats(data);
+};
 
 const showBeatSuccess = (data) => {
-  idNum = data.beat.id;
-  patternFromData.kick = JSON.parse(data.beat.kick);
-  patternFromData.snare = JSON.parse(data.beat.snare);
-  patternFromData.hatClose = JSON.parse(data.beat.hatClose);
-  patternFromData.hatOpen = JSON.parse(data.beat.hatOpen);
-  patternFromData.clap = JSON.parse(data.beat.clap);
+
+  id = data.beat.id;
+  console.log(id);
+  let patternFromData = {
+    kick: JSON.parse(data.beat.kick),
+    snare: JSON.parse(data.beat.snare),
+    hatClose: JSON.parse(data.beat.hatClose),
+    hatOpen: JSON.parse(data.beat.hatOpen),
+    clap: JSON.parse(data.beat.clap),
+  };
+  console.log(patternFromData);
   drumPatterns.replacePatternFromData(patternFromData);
-  drumPatterns.userSelectId(idNum);
-  $('.command-bottom').empty().append('<h2>Beat successfully saved!</h2>').fadeOut(5000);
+  $('.command-bottom').empty().append('<h2 class = "message">' + data.beat.name + ' loaded</h2>');
+  $('.command-middle').empty();
+  return id;
 };
 
+
+const updateBeatSuccess = function() {
+  // console.log(data)
+  $('.command-bottom').empty().append('<h2 class = "message">Beat successfully saved!</h2>');
+  $('.message').fadeOut(5000);
+  $('.command-middle').empty();
+};
+
+
 const showBeatFailure = function (error) {
-  $('.command-bottom').empty().append('<h2>Beat not found</h2>').fadeOut(5000);
+  drumPatterns.clearBeat();
+  $('.command-bottom').empty().append('<h2 class = "message">Beat not found</h2>');
+  $('.message').fadeOut(5000);
+  $('.command-middle').empty();
+  console.log(error);
+
+};
+
+
+const updateBeatFailure = function (error) {
+  $('.command-bottom').html('<h2 class = "message">Please create a beat first</h2>');
+  $('.message').fadeOut(5000);
+  $('.command-middle').empty();
+
   console.log(error);
 };
 
@@ -76,12 +104,15 @@ const failure = (error) => {
 };
 
 
-
 module.exports = {
-  failure,
+  id,
+  displayBeats,
   createSuccess,
   showAllSuccess,
   showBeatSuccess,
+  showBeatFailure,
   deleteBeatSuccess,
-  showBeatFailure
+  updateBeatSuccess,
+  updateBeatFailure,
+  failure
 };

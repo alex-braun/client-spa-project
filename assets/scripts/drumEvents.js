@@ -11,20 +11,17 @@ const clap = $('.wav-clap');
 const hatClose = $('.wav-hat-close');
 const hatOpen = $('.wav-hat-open');
 
-let dataId;
-
-//This callback sets dataId to a number for the delete function.
-const getIdNum = function(idNum) {
-  dataId = idNum;
-};
+let id;
 
 
-const onShowBeat = function (event) {
-  let data = getFormFields(this);
-  dataId = data.beats.id;
-  console.log(data);
+const onShowBeat = function (id) {
+  // let data = getFormFields(this);
+  // id = $(this).data("id");
+  // console.log(id);
+  // dataId = data.id;
+  // console.log(data);
   event.preventDefault();
-  drumApi.beatShow(data)
+  drumApi.beatShow(id)
     .done(drumUi.showBeatSuccess)
     .fail(drumUi.showBeatFailure);
 };
@@ -41,6 +38,7 @@ const onShowAllBeats = function (event) {
 
 const onCreateBeat = function (event) {
   let data = getFormFields(this);
+  // console.log(data);
   // dataId = data.beats.id;
   event.preventDefault();
   drumApi.beatCreate(data)
@@ -48,17 +46,33 @@ const onCreateBeat = function (event) {
     .fail(drumUi.failure);
 };
 
+const onUpdateBeat = function() {
+  console.log(drumUi.id);
+  // console.log(drumPatterns.beat);
+  if (typeof drumUi.id === 'undefined') {
+    drumUi.updateBeatFailure();
+  } else {
+  let stringKick = JSON.stringify(drumPatterns.beat.kick);
+  let stringSnare = JSON.stringify(drumPatterns.beat.snare);
+  let stringHatClose = JSON.stringify(drumPatterns.beat.hatClose);
+  let stringHatOpen = JSON.stringify(drumPatterns.beat.hatOpen);
+  let stringClap = JSON.stringify(drumPatterns.beat.clap);
+  // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  drumUi.updateBeatSuccess();
+  drumApi.beatUpdate(drumUi.id,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+  }
+};
 
 const onDeleteBeat = function (event) {
   event.preventDefault();
-  drumApi.beatDelete(dataId)
-  .done(drumUi.deleteBeatSuccess(event))
+  // console.log(id);
+  drumApi.beatDelete(drumUi.id)
+  .done(drumUi.deleteBeatSuccess(drumUi.id))
   .fail(drumUi.failure);
 };
 
 //event handlers below
 let currentDrum;
-
 
 
 const addDrumHandlers = () => {
@@ -139,32 +153,33 @@ drumPatterns.mapPatternsToIndicators(currentDrum);
 }
 });
 
-// $('.create-pattern').on('submit', onCreatePattern);
-$('.view-all-beats').hide();
-
+$(document).on("click", ".list", function() {
+id = $(this).data('id');
+onShowBeat(id);
+});
+// $('.view-all-beats').hide();
 $('#create-beat').on('submit', onCreateBeat);
 $('.create-beat-button').click(function() {
   $('#create-beat-modal').modal('hide');
 });
 $('.delete-beat').on('click', onDeleteBeat);
-$('#show-beat').on('submit', onShowBeat);
-$('.show-beat-button').click(function() {
-  $('#show-beat-modal').modal('hide');
-});
+// $('#show-beat').on('submit', onShowBeat);
+// $('.show-beat-button').click(function() {
+//   $('#show-beat-modal').modal('hide');
+// });
+// $('li.list').on('click', function() {
+//   alert($(this).data('id'));
+// });
+// $('.index-beats').click(function() {
+//   $('ul').empty();
+// });
+$('.index-beats').on('click',onShowAllBeats);
 
-$('.index-beats').click(function() {
-  $('ul.id, ul.name').empty();
-});
+// $('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
 
-$('.index-beats').click(function(event) {
-$('.titles').delay(1000);
-$('.view-all-beats').fadeToggle(1250,onShowAllBeats(event));
-});
-
-$('.save-beat').on('click', drumPatterns.onSaveBeat);
+$('.save-beat').on('click', onUpdateBeat);
 };
 
 module.exports = {
   addDrumHandlers,
-  getIdNum
 };

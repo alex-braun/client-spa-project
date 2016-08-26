@@ -13,6 +13,7 @@ const drumEvents = require('./drumEvents');
 
 
 
+
 $(() => {
   authEvents.addHandlers();
   drumEvents.addDrumHandlers();

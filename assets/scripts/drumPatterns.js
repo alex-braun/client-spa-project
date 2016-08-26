@@ -1,9 +1,9 @@
 'use strict';
 
-const drumApi = require('./drumApi');
-const drumEvents = require('./drumEvents');
+// const drumApi = require('./drumApi');
+// const drumEvents = require('./drumEvents');
 const knobJQuery = require('./jquery.knob.min');
-
+// const drumUi = require('./drumUi');
 
 
 const triggerGrid = ['pad 1', 'pad 2', 'pad 3', 'pad 4', 'pad 5', 'pad 6',
@@ -24,14 +24,14 @@ const beat = {
 
 let drum;
 
-
-//this clears the pattern after the delete call is made
 const clearBeat = function() {
   for (let key in beat) {
-    if (beat.hasOwnProperty(key)) {
-      beat[key] = false;
-    }
+    let drum = beat[key];
+      for (let i = 0; i < triggerGrid.length; i++) {
+        drum[i] = false;
+      }
   }
+  console.log(beat);
 };
 
 
@@ -89,21 +89,27 @@ let replacePatternFromData = function(object) {
 
 
 //callback for the idNum variable stored from UI beat CREATE and SHOW.
-let num;
-let userSelectId = function(idNum) {
-num = idNum;
-};
+// let num;
+// let userSelectId = function(idNum) {
+// num = idNum;
+// };
 
 
-let onSaveBeat = function() {
-  let stringKick = JSON.stringify(beat.kick);
-  let stringSnare = JSON.stringify(beat.snare);
-  let stringHatClose = JSON.stringify(beat.hatClose);
-  let stringHatOpen = JSON.stringify(beat.hatOpen);
-  let stringClap = JSON.stringify(beat.clap);
-  // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
-  drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
-};
+// let onSaveBeat = function() {
+//   if (typeof num === 'undefined') {
+//     drumUi.showSaveFailure();
+//   } else {
+//   let stringKick = JSON.stringify(beat.kick);
+//   let stringSnare = JSON.stringify(beat.snare);
+//   let stringHatClose = JSON.stringify(beat.hatClose);
+//   let stringHatOpen = JSON.stringify(beat.hatOpen);
+//   let stringClap = JSON.stringify(beat.clap);
+//   // console.log(stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+//   drumUi.saveBeatSuccess();
+//   drumApi.beatUpdate(num,stringKick,stringSnare,stringHatClose,stringHatOpen,stringClap);
+//   }
+// };
+
 
 
 // const showPatternSuccess = (data) => {
@@ -180,9 +186,8 @@ module.exports = {
   constructPattern,
   padIndex,
   userSelectDrum,
-  userSelectId,
+  beat,
   mapPatternsToIndicators,
   replacePatternFromData,
-  onSaveBeat,
   clearBeat
 };
